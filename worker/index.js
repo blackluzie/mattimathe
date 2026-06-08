@@ -64,6 +64,21 @@ const WORKSHEETS = {
 
 export default {
   async fetch(request, env) {
+    try {
+      return await handle(request, env);
+    } catch (err) {
+      // Statt eines nichtssagenden Cloudflare-1101 die echte Ursache zeigen.
+      console.log("Worker-Fehler:", err && (err.stack || err.message || String(err)));
+      return new Response(
+        "Es ist ein interner Fehler aufgetreten. Bitte lade die Seite neu.\n\n" +
+          (err && (err.stack || err.message || String(err))),
+        { status: 500, headers: { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "no-store" } }
+      );
+    }
+  }
+};
+
+async function handle(request, env) {
     const url = new URL(request.url);
 
     // --- Logout ---
@@ -109,9 +124,14 @@ export default {
     }
 
     // --- Eingeloggt: statische Datei ausliefern ---
+    if (!env.ASSETS || typeof env.ASSETS.fetch !== "function") {
+      return new Response(
+        "Konfigurationsfehler: Das ASSETS-Binding fehlt. Die statischen Dateien wurden nicht mitdeployt.",
+        { status: 500, headers: { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "no-store" } }
+      );
+    }
     return env.ASSETS.fetch(request);
-  }
-};
+}
 
 /* ---------- Foto-Korrektur per Claude Vision ---------- */
 function jsonResponse(obj, status = 200) {
