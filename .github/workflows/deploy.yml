@@ -5,7 +5,6 @@ name: Deploy to Cloudflare
 on:
   push:
     branches:
-      - claude/spanish-vocab-card-mechanics-VMplt
       - main
     paths-ignore:
       - "**/*.md"
