@@ -159,7 +159,15 @@ async function handle(request, env) {
         { status: 500, headers: { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "no-store" } }
       );
     }
-    return env.ASSETS.fetch(request);
+    const assetResp = await env.ASSETS.fetch(request);
+    // SW darf nie aus dem Edge-Cache kommen – sonst bekommt der Browser eine
+    // veraltete Version und der alte SW bleibt aktiv.
+    if (url.pathname === "/sw.js") {
+      const h = new Headers(assetResp.headers);
+      h.set("Cache-Control", "no-store, no-cache, must-revalidate");
+      return new Response(assetResp.body, { status: assetResp.status, statusText: assetResp.statusText, headers: h });
+    }
+    return assetResp;
 }
 
 /* ---------- Foto-Korrektur per Claude Vision ---------- */

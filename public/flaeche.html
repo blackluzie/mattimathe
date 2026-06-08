@@ -199,6 +199,13 @@
       }
     ];
     starteQuiz("#quiz", aufgaben);
+    history.scrollRestoration = "manual";
+    window.scrollTo(0, 0);
+  </script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.getRegistrations().then(regs => regs.forEach(r => r.unregister()));
+    }
   </script>
 </body>
 </html>
