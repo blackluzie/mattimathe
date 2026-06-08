@@ -103,6 +103,15 @@ async function handle(request, env) {
       const form = await request.formData();
       const pw = (form.get("password") || "").toString();
       if (env.SITE_PASSWORD && timingSafeEqual(pw, env.SITE_PASSWORD)) {
+        if (!env.AUTH_SECRET) {
+          // Ohne AUTH_SECRET lässt sich kein signiertes Cookie erstellen.
+          // Lieber eine klare Meldung als ein kryptischer Crypto-Crash.
+          return new Response(
+            "Konfigurationsfehler: Das Secret AUTH_SECRET ist nicht gesetzt. " +
+              "Bitte setzen: wrangler secret put AUTH_SECRET --name matti-mathe",
+            { status: 500, headers: { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "no-store" } }
+          );
+        }
         const token = await makeToken(env.AUTH_SECRET, MAX_AGE);
         return new Response(null, {
           status: 302,
@@ -126,9 +135,11 @@ async function handle(request, env) {
     }
 
     // Fallback: eigenes mm_auth-Cookie (Passwort-Login).
+    // Nur prüfen, wenn AUTH_SECRET gesetzt ist – sonst wirft die HMAC-Importe
+    // bei leerem Schlüssel einen DataError (Crash statt Login-Seite).
     if (!ok) {
       const cookie = cookies[COOKIE];
-      ok = !!(cookie && (await verifyToken(env.AUTH_SECRET, cookie)));
+      ok = !!(cookie && env.AUTH_SECRET && (await verifyToken(env.AUTH_SECRET, cookie)));
     }
 
     // --- Foto-Korrektur (nur eingeloggt) ---
