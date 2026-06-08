@@ -1,0 +1,21 @@
+name = "matti-mathe"
+main = "worker/index.js"
+compatibility_date = "2025-05-01"
+workers_dev = false
+
+# Statische Dateien aus public/ – der Worker läuft ZUERST (Login-Gate),
+# danach liefert env.ASSETS die Dateien aus.
+[assets]
+directory = "./public"
+binding = "ASSETS"
+run_worker_first = true
+
+# Eigene Domain. Die Zone hoffknecht.de muss in diesem Cloudflare-Konto liegen.
+[[routes]]
+pattern = "matti.hoffknecht.de"
+custom_domain = true
+
+# Secrets NICHT hier eintragen, sondern setzen mit:
+#   npx wrangler secret put SITE_PASSWORD
+#   npx wrangler secret put AUTH_SECRET
+#   npx wrangler secret put ANTHROPIC_API_KEY

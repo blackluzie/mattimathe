@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Funktionen – Klasse 9</title>
+  <meta name="theme-color" content="#0E7490">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar"><a class="back" href="index.html">← Zurück</a></div>
+    <h1>📈 Funktionen</h1>
+    <p class="lead">Von der Geraden zur Parabel: Steigung, y-Achsenabschnitt, Scheitelpunkt
+       und Nullstellen – Schritt für Schritt erklärt.</p>
+
+    <!-- ============ WISSEN ============ -->
+    <h2>1. Lineare Funktionen (Geraden)</h2>
+    <div class="box merken">
+      <span class="label">Merken</span>
+      <div class="formel">y = m · x + b</div>
+      <p style="margin:0"><b>m</b> = Steigung (wie steil?), <b>b</b> = y-Achsenabschnitt
+         (wo schneidet die Gerade die y-Achse?).</p>
+    </div>
+    <div class="box tipp">
+      <span class="label">Steigung verstehen</span>
+      <p>Die Steigung ist das Verhältnis „<b>Höhenunterschied ÷ Schritt nach rechts</b>“:</p>
+      <div class="formel">
+        m =
+        <span class="bruch"><span class="z">y₂ − y₁</span><span class="n">x₂ − x₁</span></span>
+        =
+        <span class="bruch"><span class="z">Δy</span><span class="n">Δx</span></span>
+      </div>
+      <p style="margin-bottom:0">m &gt; 0 → steigend ↗ · m &lt; 0 → fallend ↘ · m = 0 → waagerecht.</p>
+    </div>
+    <div class="box tipp">
+      <span class="label">Beispiel</span>
+      <p>Die Gerade geht durch P(0|1) und Q(2|5).</p>
+      <p>Steigung: m = (5 − 1) ÷ (2 − 0) = 4 ÷ 2 = <b>2</b>. y-Achsenabschnitt: b = <b>1</b> (bei x = 0).</p>
+      <div class="formel">y = 2x + 1</div>
+    </div>
+
+    <h2>2. Quadratische Funktionen (Parabeln)</h2>
+    <div class="box merken">
+      <span class="label">Merken</span>
+      <p>Die einfachste Parabel ist die <b>Normalparabel</b>:</p>
+      <div class="formel">y = x²</div>
+      <p style="margin:0">Sie ist nach oben geöffnet, ihr tiefster Punkt (Scheitelpunkt) liegt im Ursprung (0|0)
+         und sie ist <b>achsensymmetrisch</b> zur y-Achse.</p>
+    </div>
+    <div class="box">
+      <p>Die allgemeine Form lautet:</p>
+      <div class="formel">y = a · x² + b · x + c</div>
+      <p style="margin-bottom:0"><b>a</b> bestimmt Öffnung und Breite: a &gt; 0 → nach oben offen,
+         a &lt; 0 → nach unten offen; |a| groß → schmal, |a| klein → breit.</p>
+    </div>
+
+    <h2>3. Scheitelpunktform</h2>
+    <div class="box merken">
+      <span class="label">Merken</span>
+      <div class="formel">y = a · (x − d)² + e</div>
+      <p style="margin-bottom:0">Der <b>Scheitelpunkt</b> ist dann ganz einfach abzulesen: <b>S(d | e)</b>.
+         Achtung beim Vorzeichen: bei (x − 3) ist d = +3, bei (x + 3) ist d = −3.</p>
+    </div>
+    <div class="box tipp">
+      <span class="label">Beispiel</span>
+      <p>y = (x − 2)² + 3 &nbsp;→&nbsp; Scheitelpunkt <b>S(2 | 3)</b>, nach oben geöffnet.</p>
+      <p style="margin-bottom:0">y = −(x + 1)² − 4 &nbsp;→&nbsp; Scheitelpunkt <b>S(−1 | −4)</b>, nach unten geöffnet.</p>
+    </div>
+
+    <h2>4. Nullstellen (Schnittpunkte mit der x-Achse)</h2>
+    <div class="box merken">
+      <span class="label">Merken</span>
+      <p>Nullstellen sind die x-Werte, bei denen <b>y = 0</b> ist. Du setzt die Funktion gleich 0.</p>
+      <p style="margin:0">Bei der Form <b>x² + px + q = 0</b> hilft die <b>p-q-Formel</b>:</p>
+      <div class="formel">
+        x₁,₂ = −
+        <span class="bruch"><span class="z">p</span><span class="n">2</span></span>
+        ±
+        √( (
+        <span class="bruch"><span class="z">p</span><span class="n">2</span></span>
+        )² − q )
+      </div>
+    </div>
+    <div class="box tipp">
+      <span class="label">Beispiel</span>
+      <p>x² − 5x + 6 = 0 &nbsp;→&nbsp; p = −5, q = 6.</p>
+      <p>x = 2,5 ± √(6,25 − 6) = 2,5 ± √0,25 = 2,5 ± 0,5</p>
+      <p style="margin-bottom:0">→ Nullstellen: <b>x₁ = 3</b> und <b>x₂ = 2</b>.</p>
+    </div>
+    <div class="box tipp">
+      <span class="label">Schneller Trick: Ausklammern</span>
+      <p style="margin:0">Fehlt das c (z. B. x² − 4x = 0), klammere x aus:
+         x · (x − 4) = 0 → x₁ = 0 oder x₂ = 4. Ein Faktor muss 0 sein (Satz vom Nullprodukt).</p>
+    </div>
+
+    <h2>5. Punktprobe</h2>
+    <div class="box merken">
+      <span class="label">Merken</span>
+      <p style="margin:0">Liegt ein Punkt P(x|y) auf dem Graphen? Setze die x- und y-Werte ein.
+         Stimmt die Gleichung, liegt der Punkt darauf – sonst nicht.</p>
+    </div>
+    <div class="box tipp">
+      <span class="label">Beispiel</span>
+      <p style="margin-bottom:0">Liegt P(3|10) auf y = 2x + 1? &nbsp; Einsetzen: 2 · 3 + 1 = 7 ≠ 10 →
+         <b>nein</b>, P liegt nicht auf der Geraden.</p>
+    </div>
+
+    <!-- ============ ÜBEN ============ -->
+    <h2>✏️ Jetzt üben</h2>
+    <p>Tipp: Du kannst bei jeder Aufgabe einen <b>Tipp</b> anzeigen lassen.
+       Punkte schreibst du als Koordinaten, z. B. <code>(2|3)</code>.</p>
+    <div id="quiz"></div>
+
+    <p class="fuss">Mathe Klasse 9 · Funktionen</p>
+  </div>
+
+  <script src="js/quiz.js"></script>
+  <script>
+    const aufgaben = [
+      {
+        typ:"mc",
+        frage:"Was bedeutet das b in der Geradengleichung y = m·x + b?",
+        optionen:[
+          "Die Steigung der Geraden",
+          "Der y-Achsenabschnitt (Schnittpunkt mit der y-Achse)",
+          "Die Nullstelle",
+          "Der höchste Punkt"
+        ],
+        richtig:1,
+        tipp:"Setze x = 0 ein: y = m·0 + b = b.",
+        erklaerung:"b ist der y-Achsenabschnitt – der y-Wert an der Stelle x = 0."
+      },
+      {
+        typ:"input",
+        frage:"Eine Gerade geht durch P(0|2) und Q(4|10). Wie groß ist die Steigung m?",
+        loesungen:["2"],
+        platzhalter:"z. B. 2",
+        tipp:"m = Δy/Δx = (10 − 2)/(4 − 0).",
+        erklaerung:"m = (10 − 2)/(4 − 0) = 8/4 = 2."
+      },
+      {
+        typ:"mc",
+        frage:"Die Gerade y = −3x + 5 ist …",
+        optionen:["steigend ↗", "fallend ↘", "waagerecht →", "senkrecht ↑"],
+        richtig:1,
+        tipp:"Schau auf das Vorzeichen von m.",
+        erklaerung:"m = −3 ist negativ → die Gerade fällt."
+      },
+      {
+        typ:"input",
+        frage:"Liegt der Punkt P(3|10) auf der Geraden y = 2x + 4? Antworte mit ja oder nein.",
+        loesungen:["ja"],
+        platzhalter:"ja oder nein",
+        tipp:"Setze x = 3 ein und prüfe, ob y = 10 herauskommt.",
+        erklaerung:"2 · 3 + 4 = 10. Das stimmt – also ja, P liegt auf der Geraden."
+      },
+      {
+        typ:"mc",
+        frage:"Welche Parabel ist nach UNTEN geöffnet?",
+        optionen:["y = x²", "y = 2x²", "y = −x² + 3", "y = x² − 5"],
+        richtig:2,
+        tipp:"Achte auf das Vorzeichen von a (der Zahl vor x²).",
+        erklaerung:"Bei y = −x² + 3 ist a = −1 (negativ) → nach unten geöffnet."
+      },
+      {
+        typ:"input",
+        frage:"Gib den Scheitelpunkt der Parabel y = (x − 4)² + 1 an. Schreibe ihn als (x|y).",
+        loesungen:["(4|1)","4|1"],
+        platzhalter:"z. B. (4|1)",
+        tipp:"Bei y = a·(x − d)² + e ist S(d|e). Achte auf das Vorzeichen!",
+        erklaerung:"(x − 4) bedeutet d = 4, dahinter + 1 bedeutet e = 1 → S(4|1)."
+      },
+      {
+        typ:"input",
+        frage:"Gib den Scheitelpunkt von y = (x + 2)² − 5 an. Schreibe ihn als (x|y).",
+        loesungen:["(-2|-5)","-2|-5"],
+        platzhalter:"z. B. (-2|-5)",
+        tipp:"(x + 2) heißt d = −2, weil x − (−2) = x + 2.",
+        erklaerung:"d = −2 und e = −5 → S(−2|−5)."
+      },
+      {
+        typ:"input",
+        frage:"Bestimme die Nullstellen von x² − 4x = 0. Gib die kleinere zuerst an, getrennt mit Komma.",
+        loesungen:["0,4","0;4","x1=0,x2=4"],
+        platzhalter:"z. B. 0, 4",
+        tipp:"Klammere x aus: x·(x − 4) = 0.",
+        erklaerung:"x·(x − 4) = 0 → x = 0 oder x = 4."
+      },
+      {
+        typ:"input",
+        frage:"Löse mit der p-q-Formel: x² − 5x + 6 = 0. Gib die kleinere Lösung zuerst an.",
+        loesungen:["2,3","2;3"],
+        platzhalter:"z. B. 2, 3",
+        tipp:"p = −5, q = 6. x = 2,5 ± √(2,5² − 6).",
+        erklaerung:"x = 2,5 ± √(6,25 − 6) = 2,5 ± 0,5 → x₁ = 2, x₂ = 3."
+      },
+      {
+        typ:"mc",
+        frage:"Wie viele Nullstellen hat die Parabel y = x² + 4 (Normalparabel um 4 nach oben verschoben)?",
+        optionen:["zwei", "eine", "keine", "unendlich viele"],
+        richtig:2,
+        tipp:"Der tiefste Punkt liegt bei (0|4) – also komplett über der x-Achse.",
+        erklaerung:"Die Parabel berührt die x-Achse nie (Scheitel bei y = 4 > 0) → keine Nullstelle."
+      }
+    ];
+    starteQuiz("#quiz", aufgaben);
+  </script>
+</body>
+</html>

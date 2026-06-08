@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flächenberechnung – Klasse 9</title>
+  <meta name="theme-color" content="#0E7490">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar"><a class="back" href="index.html">← Zurück</a></div>
+    <h1>📐 Flächenberechnung</h1>
+    <p class="lead">Wie groß ist eine Fläche? Hier sind alle wichtigen Formeln –
+       mit Beispielen und einem Trick für zusammengesetzte Figuren.</p>
+
+    <!-- ============ WISSEN ============ -->
+    <h2>1. Die Flächenformeln auf einen Blick</h2>
+    <div class="box merken">
+      <span class="label">Merken</span>
+      <p>Der Flächeninhalt <b>A</b> wird immer in <b>Quadrat-Einheiten</b> angegeben
+         (z. B. cm², m², km²). Achte darauf, dass alle Längen in <u>derselben Einheit</u> stehen!</p>
+      <table class="daten">
+        <tr><th>Figur</th><th>Formel</th></tr>
+        <tr><td>Rechteck</td><td>A = a · b</td></tr>
+        <tr><td>Quadrat</td><td>A = a · a = a²</td></tr>
+        <tr><td>Parallelogramm</td><td>A = g · h</td></tr>
+        <tr><td>Dreieck</td><td>A = ½ · g · h</td></tr>
+        <tr><td>Trapez</td><td>A = ½ · (a + c) · h</td></tr>
+        <tr><td>Kreis</td><td>A = π · r²</td></tr>
+      </table>
+      <p style="margin-bottom:0"><b>g</b> = Grundseite, <b>h</b> = Höhe (immer <u>senkrecht</u> zur Grundseite!),
+         <b>r</b> = Radius, <b>π ≈ 3,14159</b>.</p>
+    </div>
+
+    <h2>2. Dreieck und Parallelogramm</h2>
+    <div class="box tipp">
+      <span class="label">Beispiel Dreieck</span>
+      <p>Grundseite g = 8 cm, Höhe h = 5 cm:</p>
+      <div class="formel">A = ½ · g · h = ½ · 8 · 5 = <b>20 cm²</b></div>
+      <p style="margin-bottom:0">Merke: Das Dreieck ist immer das „halbe“ Parallelogramm – darum das ½.</p>
+    </div>
+    <div class="box achtung">
+      <span class="label">Vorsicht</span>
+      <p style="margin:0">Die Höhe ist <u>nicht</u> automatisch eine Seite! Sie steht immer
+         <b>senkrecht (90°)</b> auf der Grundseite. Bei „schiefen“ Dreiecken liegt sie manchmal außerhalb.</p>
+    </div>
+
+    <h2>3. Trapez</h2>
+    <div class="box tipp">
+      <span class="label">Beispiel Trapez</span>
+      <p>Die beiden parallelen Seiten sind a = 10 cm und c = 6 cm, die Höhe h = 4 cm:</p>
+      <div class="formel">A = ½ · (a + c) · h = ½ · (10 + 6) · 4 = ½ · 16 · 4 = <b>32 cm²</b></div>
+      <p style="margin-bottom:0">Du nimmst den <b>Durchschnitt</b> der parallelen Seiten und mal die Höhe.</p>
+    </div>
+
+    <h2>4. Kreis: Fläche und Umfang</h2>
+    <div class="box merken">
+      <span class="label">Merken</span>
+      <div class="formel">Fläche: A = π · r²  &nbsp;·&nbsp;  Umfang: U = 2 · π · r = π · d</div>
+      <p style="margin-bottom:0"><b>r</b> = Radius, <b>d</b> = Durchmesser = 2 · r. Tipp: erst <b>r²</b> rechnen, dann mal π.</p>
+    </div>
+    <div class="box tipp">
+      <span class="label">Beispiel Kreis</span>
+      <p>Radius r = 5 cm:</p>
+      <div class="formel">A = π · r² = π · 25 ≈ 3,14 · 25 ≈ <b>78,5 cm²</b></div>
+      <p style="margin-bottom:0">Umfang: U = 2 · π · 5 ≈ 31,4 cm.</p>
+    </div>
+
+    <h2>5. Kreissektor (Tortenstück)</h2>
+    <div class="box merken">
+      <span class="label">Merken</span>
+      <p>Ein Kreissektor ist ein Anteil des ganzen Kreises – je nach Mittelpunktswinkel α:</p>
+      <div class="formel">
+        A<sub>Sektor</sub> =
+        <span class="bruch"><span class="z">α</span><span class="n">360°</span></span>
+        · π · r²
+      </div>
+      <p style="margin-bottom:0">Beispiel: Viertelkreis (α = 90°) mit r = 6 cm →
+         A = (90/360) · π · 36 = ¼ · π · 36 ≈ <b>28,3 cm²</b>.</p>
+    </div>
+
+    <h2>6. Zusammengesetzte Flächen (der wichtigste Trick)</h2>
+    <div class="box merken">
+      <span class="label">Strategie</span>
+      <p>Krumme oder komplizierte Figuren <b>zerlegst</b> du in einfache Teile
+         (Rechtecke, Dreiecke, Halbkreise …):</p>
+      <p style="margin:0">1) Figur in bekannte Teilflächen aufteilen.<br>
+         2) Jede Teilfläche einzeln ausrechnen.<br>
+         3) Flächen <b>addieren</b> – oder bei einem „Loch“ <b>subtrahieren</b>.</p>
+    </div>
+    <div class="box tipp">
+      <span class="label">Beispiel</span>
+      <p>Ein Rechteck (12 cm × 8 cm) mit einem ausgeschnittenen Loch in Form eines
+         Dreiecks (g = 6 cm, h = 4 cm):</p>
+      <div class="formel">A = (12 · 8) − (½ · 6 · 4) = 96 − 12 = <b>84 cm²</b></div>
+    </div>
+
+    <!-- ============ ÜBEN ============ -->
+    <h2>✏️ Jetzt üben</h2>
+    <p>Tipp: Du kannst bei jeder Aufgabe einen <b>Tipp</b> anzeigen lassen.
+       Quadrat-Einheiten schreibst du so: <code>cm^2</code> – oder lass die Einheit weg.</p>
+    <div id="quiz"></div>
+
+    <p class="fuss">Mathe Klasse 9 · Flächenberechnung</p>
+  </div>
+
+  <script src="js/quiz.js"></script>
+  <script>
+    const aufgaben = [
+      {
+        typ:"input",
+        frage:"Rechteck mit a = 7 cm und b = 4 cm. Wie groß ist die Fläche?",
+        loesungen:["28","28cm^2","28cm²"],
+        platzhalter:"z. B. 28",
+        tipp:"A = a · b.",
+        erklaerung:"A = 7 · 4 = 28 cm²."
+      },
+      {
+        typ:"input",
+        frage:"Dreieck mit Grundseite g = 10 cm und Höhe h = 6 cm. Fläche?",
+        loesungen:["30","30cm^2","30cm²"],
+        platzhalter:"z. B. 30",
+        tipp:"A = ½ · g · h. Vergiss das ½ nicht!",
+        erklaerung:"A = ½ · 10 · 6 = 30 cm²."
+      },
+      {
+        typ:"mc",
+        frage:"Welche Linie ist bei der Dreiecksfläche die „Höhe“?",
+        optionen:[
+          "Die längste Seite des Dreiecks",
+          "Die Strecke senkrecht von der Grundseite zur Spitze",
+          "Der Umfang geteilt durch 3",
+          "Die kürzeste Seite"
+        ],
+        richtig:1,
+        tipp:"Die Höhe steht immer im rechten Winkel (90°) zur Grundseite.",
+        erklaerung:"Die Höhe ist die senkrechte Strecke von der Grundseite zur gegenüberliegenden Ecke."
+      },
+      {
+        typ:"input",
+        frage:"Parallelogramm mit Grundseite g = 9 cm und Höhe h = 5 cm. Fläche?",
+        loesungen:["45","45cm^2","45cm²"],
+        platzhalter:"z. B. 45",
+        tipp:"A = g · h (beim Parallelogramm ohne ½).",
+        erklaerung:"A = 9 · 5 = 45 cm²."
+      },
+      {
+        typ:"input",
+        frage:"Trapez mit den parallelen Seiten a = 8 cm und c = 4 cm, Höhe h = 5 cm. Fläche?",
+        loesungen:["30","30cm^2","30cm²"],
+        platzhalter:"z. B. 30",
+        tipp:"A = ½ · (a + c) · h.",
+        erklaerung:"A = ½ · (8 + 4) · 5 = ½ · 12 · 5 = 30 cm²."
+      },
+      {
+        typ:"mc",
+        frage:"Wie lautet die Formel für den Flächeninhalt eines Kreises?",
+        optionen:["A = 2 · π · r", "A = π · d", "A = π · r²", "A = ½ · π · r"],
+        richtig:2,
+        tipp:"Beim Flächeninhalt kommt der Radius ins Quadrat.",
+        erklaerung:"A = π · r². (2 · π · r ist der Umfang, nicht die Fläche.)"
+      },
+      {
+        typ:"input",
+        frage:"Kreis mit Radius r = 3 cm. Wie groß ist die Fläche? Runde auf eine Stelle (π ≈ 3,14).",
+        loesungen:["28.3","28.26","28,3","28.3cm^2"],
+        platzhalter:"z. B. 28,3",
+        tipp:"A = π · r² = π · 3² = π · 9.",
+        erklaerung:"A = π · 9 ≈ 3,14 · 9 ≈ 28,3 cm²."
+      },
+      {
+        typ:"input",
+        frage:"Halbkreis mit Radius r = 4 cm. Wie groß ist seine Fläche? (π ≈ 3,14, eine Nachkommastelle)",
+        loesungen:["25.1","25.13","25,1","25.12"],
+        platzhalter:"z. B. 25,1",
+        tipp:"Erst den ganzen Kreis (π · r²), dann durch 2.",
+        erklaerung:"Ganzer Kreis: π · 16 ≈ 50,27. Halbkreis: 50,27 ÷ 2 ≈ 25,1 cm²."
+      },
+      {
+        typ:"input",
+        frage:"Viertelkreis (Sektor mit α = 90°) mit r = 2 cm. Fläche? (π ≈ 3,14, eine Nachkommastelle)",
+        loesungen:["3.1","3.14","3,1","3.142"],
+        platzhalter:"z. B. 3,1",
+        tipp:"A = (α/360) · π · r² = (90/360) · π · 4 = ¼ · π · 4.",
+        erklaerung:"¼ · π · 4 = π ≈ 3,1 cm²."
+      },
+      {
+        typ:"input",
+        frage:"Ein Rechteck 10 cm × 6 cm hat ein dreieckiges Loch (g = 4 cm, h = 3 cm). Wie groß ist die Restfläche?",
+        loesungen:["54","54cm^2","54cm²"],
+        platzhalter:"z. B. 54",
+        tipp:"Rechteck minus Dreieck: (10 · 6) − (½ · 4 · 3).",
+        erklaerung:"60 − 6 = 54 cm²."
+      }
+    ];
+    starteQuiz("#quiz", aufgaben);
+  </script>
+</body>
+</html>

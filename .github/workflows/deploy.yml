@@ -1,0 +1,41 @@
+name: Deploy to Cloudflare
+
+# Automatischer Deploy bei jedem Push auf den Entwicklungs-/Hauptbranch.
+# Außerdem manuell auslösbar ("Run workflow").
+on:
+  push:
+    branches:
+      - claude/spanish-vocab-card-mechanics-VMplt
+      - main
+    paths-ignore:
+      - "**/*.md"
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - run: npm ci
+
+      - name: Deploy (Worker + PWA + Domain)
+        run: npx wrangler deploy
+
+      - name: KI-Schlüssel für Foto-Korrektur setzen (falls hinterlegt)
+        # Läuft auch, wenn der Deploy-Schritt nur an der (gelegentlich flaky)
+        # Custom-Domain-Registrierung scheitert – das Script ist dann schon hochgeladen.
+        if: ${{ !cancelled() && env.ANTHROPIC_API_KEY != '' }}
+        run: printf '%s' "$ANTHROPIC_API_KEY" | npx wrangler secret put ANTHROPIC_API_KEY

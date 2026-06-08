@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mattis Mathe – Klasse 9</title>
+  <meta name="theme-color" content="#0E7490">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="wrap">
+    <h1>👋 Hallo Matti!</h1>
+    <p class="lead">Hier übst du für die nächste Mathe-Arbeit. Such dir ein Thema aus.
+       Du kannst so oft üben, wie du möchtest – Fehler gehören dazu.</p>
+
+    <!-- Themen werden aus js/topics.js automatisch eingefügt -->
+    <div class="cards" id="themenKarten"></div>
+
+    <h2>📸 Arbeitsblatt kontrollieren</h2>
+    <p>Du hast ein Arbeitsblatt mit Stift ausgefüllt? Fotografiere es ab –
+       die KI schaut es sich an und gibt dir eine Rückmeldung, Aufgabe für Aufgabe.</p>
+    <div class="cards">
+      <a class="card" href="korrektur.html" style="border-color:var(--blau)">
+        <span class="emoji">📸</span>
+        <h2>Foto-Korrektur</h2>
+        <p>Blatt auswählen, Foto machen, fertig – du erfährst, was schon stimmt und wo du nochmal draufschaust.</p>
+      </a>
+    </div>
+
+    <h2>📄 Zum Ausdrucken</h2>
+    <p>Lieber mit Stift und Papier? Hier sind die Arbeitsblätter mit Lösungen:</p>
+    <div class="cards" id="arbeitsblattKarten"></div>
+
+    <div class="box tipp" style="margin-top:30px">
+      <span class="label">Für zwischendurch</span>
+      <p style="margin:0">Lieber kurz und oft üben (z. B. 20 Minuten) als einmal ganz lange.
+         Mach Pausen, wenn du müde wirst. Du schaffst das! 💪</p>
+    </div>
+
+    <p class="fuss">Mathe · Gymnasium NRW · Klasse 9 · Lernprojekt für Matti</p>
+  </div>
+
+  <script src="js/topics.js"></script>
+  <script>
+    // Startseite baut sich aus dem Themen-Register (js/topics.js) zusammen.
+    (function () {
+      function esc(s) {
+        return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+          return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+        });
+      }
+      var themen = window.THEMEN || [];
+
+      var lern = themen.filter(function (t) { return t.lernseite; }).map(function (t) {
+        return '<a class="card" href="' + esc(t.lernseite) + '">' +
+          '<span class="emoji">' + esc(t.emoji || "📘") + "</span>" +
+          "<h2>" + esc(t.titel) + "</h2>" +
+          "<p>" + esc(t.kurz || "") + "</p></a>";
+      }).join("");
+      document.getElementById("themenKarten").innerHTML = lern ||
+        '<p class="lead">Bald geht es los – neue Themen kommen dazu.</p>';
+
+      var blaetter = themen.filter(function (t) { return t.arbeitsblatt; }).map(function (t) {
+        return '<a class="card" href="' + esc(t.arbeitsblatt) + '">' +
+          '<span class="emoji">🖨️</span>' +
+          "<h2>Arbeitsblatt " + esc(t.titel) + "</h2>" +
+          "<p>Aufgaben + Lösungen. Über den Drucken-Knopf als PDF speichern.</p></a>";
+      }).join("");
+      document.getElementById("arbeitsblattKarten").innerHTML = blaetter ||
+        '<p class="lead">Noch keine Arbeitsblätter vorhanden.</p>';
+    })();
+
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(()=>{}));
+    }
+  </script>
+</body>
+</html>
