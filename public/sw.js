@@ -5,7 +5,7 @@
 
    Beim Hinzufügen eines neuen Themas: neue HTML-Dateien unten in ASSETS
    ergänzen und die Versionsnummer (CACHE) erhöhen.                       */
-const CACHE = "mattis-mathe-v1";
+const CACHE = "mattis-mathe-v2";
 const ASSETS = [
   "./",
   "./index.html",
@@ -37,8 +37,9 @@ self.addEventListener("activate", (e) => {
 
 self.addEventListener("fetch", (e) => {
   const req = e.request;
-  // Nur GET; alles rund um Login/Logout immer direkt aus dem Netz holen.
-  if (req.method !== "GET" || req.url.includes("/login") || req.url.includes("/logout")) return;
+  // Nur GET; Navigation + Login/Logout immer direkt zum Server – der CF-Worker
+  // macht dort die Auth. fetch(navigate-mode-Request) würde in Chrome fehlschlagen.
+  if (req.method !== "GET" || req.mode === "navigate" || req.url.includes("/login") || req.url.includes("/logout")) return;
 
   e.respondWith(
     caches.match(req).then((hit) => {
