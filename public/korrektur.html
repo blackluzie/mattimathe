@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arbeitsblatt fotografieren – Mattis Mathe</title>
+  <meta name="theme-color" content="#0E7490">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <a class="back" href="index.html">← Zurück</a>
+    </div>
+
+    <h1>📸 Arbeitsblatt kontrollieren</h1>
+    <p class="lead">Du hast ein Arbeitsblatt ausgefüllt? Fotografiere es ab – die KI schaut es sich an
+       und sagt dir, was schon stimmt und wo du nochmal draufschauen kannst.</p>
+
+    <!-- Schritt 1: Welches Blatt? (Knöpfe kommen aus js/topics.js) -->
+    <div class="box">
+      <span class="label" style="color:var(--blau)">Schritt 1</span>
+      <p style="margin:.2em 0 0"><b>Welches Arbeitsblatt hast du gemacht?</b></p>
+      <div class="blatt-wahl" id="blattWahl"></div>
+    </div>
+
+    <!-- Schritt 2: Foto -->
+    <div class="box" id="schrittFoto" style="opacity:.5; pointer-events:none">
+      <span class="label" style="color:var(--blau)">Schritt 2</span>
+      <p style="margin:.2em 0 0"><b>Mach ein Foto von deinem ausgefüllten Blatt.</b></p>
+      <p class="lead" style="margin-top:4px">Tipp: gutes Licht, von oben, gerade – und so, dass man alles lesen kann.</p>
+
+      <input type="file" id="fotoInput" accept="image/*" capture="environment" hidden>
+      <div class="foto-feld" id="fotoFeld">
+        <button class="btn" id="fotoBtn">📷 Foto aufnehmen oder auswählen</button>
+        <p class="hinweis" id="fotoHinweis" style="margin-top:12px">Noch kein Foto ausgewählt.</p>
+      </div>
+
+      <div class="aktionen">
+        <button class="btn" id="checkBtn" disabled>✅ Kontrollieren lassen</button>
+        <button class="btn geist hidden" id="neuBtn">🔄 Neues Foto</button>
+      </div>
+    </div>
+
+    <!-- Ladeanzeige -->
+    <div class="lade hidden" id="lade">
+      <div class="spinner"></div>
+      <p>Ich schaue mir dein Blatt an … einen kleinen Moment. 🧐</p>
+    </div>
+
+    <!-- Fehler -->
+    <div class="box achtung hidden" id="fehlerBox">
+      <span class="label">Hoppla</span>
+      <p style="margin:.2em 0 0" id="fehlerText"></p>
+    </div>
+
+    <!-- Ergebnis -->
+    <div id="ergebnis" class="hidden">
+      <h2>Deine Rückmeldung</h2>
+      <div id="korrekturListe"></div>
+      <div class="box tipp" id="lobBox">
+        <span class="label">Stark gemacht! 🌟</span>
+        <p style="margin:.2em 0 0" id="lobText"></p>
+      </div>
+      <div class="box merken" id="tippBox">
+        <span class="label">Tipp fürs Weiterüben</span>
+        <p style="margin:.2em 0 0" id="tippText"></p>
+      </div>
+      <div class="aktionen">
+        <button class="btn" onclick="location.reload()">📸 Noch ein Blatt kontrollieren</button>
+        <a class="btn geist" href="index.html">🏠 Zur Startseite</a>
+      </div>
+    </div>
+
+    <p class="fuss">Mathe · Gymnasium NRW · Foto-Korrektur · Lernprojekt für Matti</p>
+  </div>
+
+  <script src="js/topics.js"></script>
+  <script src="js/korrektur.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(()=>{}));
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+# Kopiere diese Datei zu ".dev.vars" für die lokale Entwicklung (npm run dev).
+# Für die echte Veröffentlichung werden die Werte stattdessen als Secrets gesetzt:
+#   npx wrangler secret put SITE_PASSWORD
+#   npx wrangler secret put AUTH_SECRET
+#   npx wrangler secret put ANTHROPIC_API_KEY
+
+SITE_PASSWORD=hier-ein-passwort
+AUTH_SECRET=hier-einen-langen-zufallsstring
+ANTHROPIC_API_KEY=hier-der-anthropic-api-key

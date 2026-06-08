@@ -1,0 +1,326 @@
+/* =====================================================================
+   Mattis Mathe – Klasse 9 (Gymnasium NRW)
+   Klares, ruhiges Lern-Design für die Mittelstufe.
+
+   Gestaltungsprinzipien:
+   - große, gut lesbare Schrift, viel Zeilenabstand
+   - ruhiger, warmer Hintergrund (weniger visueller Stress)
+   - Akzentfarbe Petrol/Teal; "richtig" = grün, "falsch" = rot
+   - klare Trennung von Wissen (Merkkasten) und Üben
+   - große Bedienelemente, deutliches Feedback
+   ===================================================================== */
+
+:root {
+  /* Farben */
+  --bg:        #FBF8F3;   /* warmes Off-White */
+  --card:      #FFFFFF;
+  --ink:       #2A2E35;   /* dunkles Schiefergrau, kein hartes Schwarz */
+  --ink-soft:  #5A6270;
+  --line:      #E4DED3;
+
+  --blau:      #0E7490;   /* Hauptakzent (Petrol/Teal) */
+  --blau-bg:   #E2F2F6;
+  --gruen:     #1E9E6A;   /* richtig */
+  --gruen-bg:  #E4F6EE;
+  --rot:       #D14343;   /* falsch */
+  --rot-bg:    #FCE9E9;
+  --gelb:      #E9A100;   /* Tipp / Merken */
+  --gelb-bg:   #FFF6E0;
+  --lila:      #7A4FD0;
+
+  --radius: 16px;
+  --shadow: 0 2px 10px rgba(60,50,30,0.08);
+  --maxw: 880px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Atkinson Hyperlegible", "Verdana", "Segoe UI", system-ui, sans-serif;
+  font-size: 19px;
+  line-height: 1.7;
+  -webkit-text-size-adjust: 100%;
+}
+
+.wrap {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 24px 20px 80px;
+}
+
+/* ---------- Kopf / Navigation ---------- */
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+.back {
+  text-decoration: none;
+  color: var(--blau);
+  font-weight: 700;
+  background: var(--blau-bg);
+  padding: 8px 16px;
+  border-radius: 999px;
+}
+.back:hover { filter: brightness(0.97); }
+
+h1 {
+  font-size: 2.0rem;
+  line-height: 1.25;
+  margin: 0.4em 0 0.2em;
+}
+h2 {
+  font-size: 1.45rem;
+  margin: 1.6em 0 0.4em;
+  border-bottom: 3px solid var(--line);
+  padding-bottom: 6px;
+}
+h3 { font-size: 1.2rem; margin: 1.2em 0 0.3em; }
+
+p { margin: 0.6em 0; }
+
+.lead { font-size: 1.1rem; color: var(--ink-soft); }
+
+/* ---------- Karten auf der Startseite ---------- */
+.cards { display: grid; gap: 20px; grid-template-columns: 1fr; margin-top: 24px; }
+@media (min-width: 640px) { .cards { grid-template-columns: 1fr 1fr; } }
+
+.card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: var(--card);
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px;
+  box-shadow: var(--shadow);
+  transition: transform .12s ease, border-color .12s ease;
+}
+.card:hover { transform: translateY(-3px); border-color: var(--blau); }
+.card .emoji { font-size: 2.4rem; display: block; margin-bottom: 6px; }
+.card h2 { border: none; margin: 0 0 6px; font-size: 1.3rem; }
+.card p { margin: 0; color: var(--ink-soft); font-size: 1rem; }
+
+/* ---------- Merkkasten / Infoboxen ---------- */
+.box {
+  background: var(--card);
+  border: 2px solid var(--line);
+  border-left: 8px solid var(--blau);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  margin: 18px 0;
+  box-shadow: var(--shadow);
+}
+.box.merken { border-left-color: var(--gelb); background: var(--gelb-bg); }
+.box.tipp   { border-left-color: var(--gruen); background: var(--gruen-bg); }
+.box.achtung{ border-left-color: var(--rot);  background: var(--rot-bg); }
+
+.box .label {
+  display: inline-block;
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.box.merken  .label { color: var(--gelb); }
+.box.tipp    .label { color: var(--gruen); }
+.box.achtung .label { color: var(--rot); }
+
+/* Hervorhebungen mit fester Bedeutung */
+.guenstig { color: var(--gruen); font-weight: 800; }
+.moeglich { color: var(--blau);  font-weight: 800; }
+
+/* Formel-Darstellung */
+.formel {
+  font-size: 1.25rem;
+  text-align: center;
+  background: var(--blau-bg);
+  border-radius: 12px;
+  padding: 16px;
+  margin: 14px 0;
+}
+.bruch {
+  display: inline-flex;
+  flex-direction: column;
+  text-align: center;
+  vertical-align: middle;
+  margin: 0 4px;
+}
+.bruch .z { border-bottom: 3px solid var(--ink); padding: 0 8px; }
+.bruch .n { padding: 2px 8px 0; }
+
+/* ---------- Tabellen ---------- */
+table.daten {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 14px 0;
+  background: var(--card);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+table.daten th, table.daten td {
+  border: 1px solid var(--line);
+  padding: 10px 12px;
+  text-align: center;
+}
+table.daten th { background: var(--blau-bg); }
+
+/* ---------- Übungs-Engine ---------- */
+.quiz-kopf {
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 10px; margin: 10px 0 4px;
+}
+.fortschritt {
+  font-weight: 700; color: var(--ink-soft); font-size: 0.95rem;
+}
+.balken { height: 10px; background: var(--line); border-radius: 999px; overflow: hidden; }
+.balken > span { display: block; height: 100%; width: 0%; background: var(--gruen); transition: width .3s ease; }
+
+.aufgabe {
+  background: var(--card);
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin: 16px 0;
+  box-shadow: var(--shadow);
+}
+.aufgabe .frage { font-size: 1.15rem; font-weight: 700; margin-bottom: 12px; }
+.aufgabe .frage .nr {
+  display: inline-block; background: var(--blau); color: #fff;
+  border-radius: 999px; padding: 1px 12px; margin-right: 8px; font-size: 0.95rem;
+}
+
+.optionen { display: grid; gap: 12px; margin: 10px 0; }
+.option {
+  display: flex; align-items: center; gap: 12px;
+  text-align: left; width: 100%;
+  background: #fff; color: var(--ink);
+  border: 2px solid var(--line); border-radius: 12px;
+  padding: 14px 16px; font: inherit; cursor: pointer;
+  transition: border-color .1s, background .1s;
+}
+.option:hover { border-color: var(--blau); background: var(--blau-bg); }
+.option .mark {
+  flex: 0 0 auto; width: 30px; height: 30px; border-radius: 50%;
+  border: 2px solid var(--line); display: grid; place-items: center;
+  font-weight: 800; color: var(--ink-soft);
+}
+.option.richtig  { border-color: var(--gruen); background: var(--gruen-bg); }
+.option.richtig .mark  { border-color: var(--gruen); background: var(--gruen); color:#fff; }
+.option.falsch   { border-color: var(--rot); background: var(--rot-bg); }
+.option.falsch .mark   { border-color: var(--rot); background: var(--rot); color:#fff; }
+.option:disabled { cursor: default; }
+
+.eingabe-zeile { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin: 8px 0; }
+.eingabe-zeile input[type="text"] {
+  font: inherit; padding: 12px 14px; border: 2px solid var(--line);
+  border-radius: 12px; min-width: 160px; background: #fff;
+}
+.eingabe-zeile input.richtig { border-color: var(--gruen); background: var(--gruen-bg); }
+.eingabe-zeile input.falsch  { border-color: var(--rot);  background: var(--rot-bg); }
+
+.btn {
+  font: inherit; font-weight: 700; cursor: pointer;
+  border: none; border-radius: 12px; padding: 12px 20px;
+  background: var(--blau); color: #fff;
+}
+.btn:hover { filter: brightness(1.05); }
+.btn.sekundaer { background: var(--gelb-bg); color: var(--gelb); border: 2px solid var(--gelb); }
+.btn.geist { background: transparent; color: var(--blau); border: 2px solid var(--blau); }
+.btn:disabled { opacity: .5; cursor: default; }
+
+.aktionen { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+
+.tippbox, .feedback {
+  margin-top: 14px; padding: 14px 16px; border-radius: 12px;
+  font-size: 1.02rem;
+}
+.tippbox { background: var(--gelb-bg); border: 2px dashed var(--gelb); }
+.feedback.gut    { background: var(--gruen-bg); border: 2px solid var(--gruen); }
+.feedback.schlecht { background: var(--rot-bg);  border: 2px solid var(--rot); }
+.feedback b { display:block; margin-bottom: 4px; }
+
+.hidden { display: none !important; }
+
+.ergebnis {
+  text-align: center; background: var(--gruen-bg);
+  border: 2px solid var(--gruen); border-radius: var(--radius);
+  padding: 26px; margin: 20px 0; font-size: 1.2rem;
+}
+.ergebnis .gross { font-size: 2.2rem; font-weight: 800; display: block; }
+
+/* SVG-Figuren (Geometrie) */
+.figur { display:block; margin: 10px auto; max-width: 100%; height:auto; background:#fff; border:2px solid var(--line); border-radius:12px; }
+
+/* Aufklappbare Lösung */
+details.loesung {
+  background: var(--card); border: 2px solid var(--line);
+  border-radius: 12px; padding: 6px 16px; margin: 10px 0;
+}
+details.loesung > summary {
+  cursor: pointer; font-weight: 700; color: var(--blau); padding: 8px 0;
+}
+details.loesung[open] > summary { margin-bottom: 8px; }
+
+/* Fußzeile */
+.fuss { margin-top: 50px; color: var(--ink-soft); font-size: 0.9rem; text-align: center; }
+
+a { color: var(--blau); }
+
+/* ---------- Foto-Korrektur ---------- */
+.blatt-wahl { display: grid; gap: 12px; grid-template-columns: 1fr; margin: 14px 0; }
+@media (min-width: 640px) { .blatt-wahl { grid-template-columns: 1fr 1fr; } }
+.blatt-option {
+  display: flex; align-items: center; gap: 12px; text-align: left; width: 100%;
+  background: #fff; color: var(--ink); border: 2px solid var(--line);
+  border-radius: 12px; padding: 14px 16px; font: inherit; cursor: pointer;
+  transition: border-color .1s, background .1s;
+}
+.blatt-option:hover { border-color: var(--blau); background: var(--blau-bg); }
+.blatt-option.aktiv { border-color: var(--blau); background: var(--blau-bg); font-weight: 700; }
+.blatt-option .em { font-size: 1.6rem; }
+
+.foto-feld {
+  border: 3px dashed var(--line); border-radius: var(--radius);
+  padding: 26px; text-align: center; background: var(--card); margin: 14px 0;
+}
+.foto-feld img { max-width: 100%; max-height: 420px; border-radius: 12px; margin-top: 12px; }
+.foto-feld .hinweis { color: var(--ink-soft); font-size: 1rem; }
+
+.lade {
+  text-align: center; padding: 24px; color: var(--ink-soft);
+}
+.lade .spinner {
+  width: 44px; height: 44px; margin: 0 auto 14px;
+  border: 5px solid var(--line); border-top-color: var(--blau);
+  border-radius: 50%; animation: dreh 0.9s linear infinite;
+}
+@keyframes dreh { to { transform: rotate(360deg); } }
+
+.korrektur-item {
+  background: var(--card); border: 2px solid var(--line); border-left: 8px solid var(--line);
+  border-radius: 12px; padding: 14px 16px; margin: 12px 0; box-shadow: var(--shadow);
+}
+.korrektur-item.richtig { border-left-color: var(--gruen); background: var(--gruen-bg); }
+.korrektur-item.fast    { border-left-color: var(--gelb);  background: var(--gelb-bg); }
+.korrektur-item.falsch  { border-left-color: var(--rot);   background: var(--rot-bg); }
+.korrektur-item.leer    { border-left-color: var(--ink-soft); }
+.korrektur-item.unklar  { border-left-color: var(--lila); }
+.korrektur-item .kopf { font-weight: 800; display: flex; align-items: center; gap: 8px; }
+.korrektur-item .kopf .nr {
+  display: inline-block; background: var(--blau); color: #fff;
+  border-radius: 999px; padding: 1px 12px; font-size: 0.95rem;
+}
+.korrektur-item p { margin: 6px 0 0; }
+
+.zusammenfassung { text-align: center; }
+.zusammenfassung .punkte { font-size: 2.4rem; font-weight: 800; display: block; color: var(--gruen); }

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arbeitsblatt – Flächenberechnung</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .aufg-nr { font-weight:800; color:var(--blau); }
+    .ab-aufgabe { margin:18px 0; padding-bottom:14px; border-bottom:1px dashed var(--line); }
+    .rechenfeld { border:2px dashed var(--line); border-radius:10px; min-height:70px; margin-top:8px; }
+    @media print {
+      .noprint { display:none !important; }
+      body { background:#fff; font-size:12pt; }
+      .wrap { max-width:100%; padding:0; }
+      .box, .ab-aufgabe { box-shadow:none; }
+      details.loesung { page-break-before: always; }
+      a[href]:after { content:""; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar noprint">
+      <a class="back" href="index.html">← Zurück</a>
+      <button class="btn" onclick="window.print()">🖨️ Drucken / als PDF speichern</button>
+    </div>
+
+    <h1>📐 Arbeitsblatt: Flächenberechnung</h1>
+    <p class="lead">Name: _______________________  &nbsp;&nbsp; Datum: ____________</p>
+
+    <div class="box merken noprint">
+      <span class="label">Spickzettel</span>
+      <p style="margin:0">Rechteck A = a·b &nbsp;·&nbsp; Dreieck A = ½·g·h &nbsp;·&nbsp;
+         Parallelogramm A = g·h &nbsp;·&nbsp; Trapez A = ½·(a+c)·h &nbsp;·&nbsp;
+         Kreis A = π·r² &nbsp;·&nbsp; Sektor A = (α/360)·π·r²</p>
+    </div>
+
+    <div class="ab-aufgabe">
+      <p><span class="aufg-nr">1.</span> Berechne den Flächeninhalt:</p>
+      <p>a) Rechteck a = 9 cm, b = 5 cm → ________  b) Quadrat a = 7 cm → ________
+         c) Dreieck g = 12 cm, h = 6 cm → ________</p>
+      <div class="rechenfeld"></div>
+    </div>
+
+    <div class="ab-aufgabe">
+      <p><span class="aufg-nr">2.</span> Parallelogramm mit Grundseite g = 11 cm und Höhe h = 4 cm.</p>
+      <p>a) Flächeninhalt? ________  b) Wie ändert sich die Fläche, wenn man die Höhe verdoppelt? ________</p>
+      <div class="rechenfeld"></div>
+    </div>
+
+    <div class="ab-aufgabe">
+      <p><span class="aufg-nr">3.</span> Trapez mit den parallelen Seiten a = 14 cm und c = 6 cm, Höhe h = 5 cm.</p>
+      <p>Flächeninhalt = ________</p>
+      <div class="rechenfeld"></div>
+    </div>
+
+    <div class="ab-aufgabe">
+      <p><span class="aufg-nr">4.</span> Kreis mit Radius r = 6 cm (rechne mit π ≈ 3,14).</p>
+      <p>a) Flächeninhalt ≈ ________  b) Umfang ≈ ________</p>
+      <div class="rechenfeld"></div>
+    </div>
+
+    <div class="ab-aufgabe">
+      <p><span class="aufg-nr">5.</span> Viertelkreis-Sektor (α = 90°) mit Radius r = 8 cm (π ≈ 3,14).</p>
+      <p>Flächeninhalt ≈ ________</p>
+      <div class="rechenfeld"></div>
+    </div>
+
+    <div class="ab-aufgabe">
+      <p><span class="aufg-nr">6.</span> ⭐ Zusammengesetzte Fläche: Ein Rechteck 20 cm × 12 cm. In einer Ecke wird
+         ein Quadrat mit der Seite 5 cm herausgeschnitten.</p>
+      <p>a) Fläche des ganzen Rechtecks ________  b) Fläche des Quadrats ________  c) Restfläche ________</p>
+      <div class="rechenfeld"></div>
+    </div>
+
+    <details class="loesung noprint">
+      <summary>✅ Lösungen anzeigen</summary>
+      <p><b>1.</b> a) 9·5 = 45 cm² &nbsp; b) 7² = 49 cm² &nbsp; c) ½·12·6 = 36 cm²</p>
+      <p><b>2.</b> a) 11·4 = 44 cm² &nbsp; b) Die Fläche verdoppelt sich auf 88 cm² (Höhe geht linear ein).</p>
+      <p><b>3.</b> ½·(14 + 6)·5 = ½·20·5 = 50 cm²</p>
+      <p><b>4.</b> a) π·6² = π·36 ≈ 113,1 cm² &nbsp; b) U = 2·π·6 ≈ 37,7 cm</p>
+      <p><b>5.</b> ¼·π·8² = ¼·π·64 = 16·π ≈ 50,3 cm²</p>
+      <p><b>6.</b> a) 20·12 = 240 cm² &nbsp; b) 5² = 25 cm² &nbsp; c) 240 − 25 = 215 cm²</p>
+    </details>
+
+    <p class="fuss">Mathe Klasse 9 · Flächenberechnung · Arbeitsblatt</p>
+  </div>
+</body>
+</html>

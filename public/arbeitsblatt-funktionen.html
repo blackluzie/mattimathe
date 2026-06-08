@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arbeitsblatt – Funktionen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .aufg-nr { font-weight:800; color:var(--blau); }
+    .ab-aufgabe { margin:18px 0; padding-bottom:14px; border-bottom:1px dashed var(--line); }
+    .rechenfeld { border:2px dashed var(--line); border-radius:10px; min-height:70px; margin-top:8px; }
+    @media print {
+      .noprint { display:none !important; }
+      body { background:#fff; font-size:12pt; }
+      .wrap { max-width:100%; padding:0; }
+      .box, .ab-aufgabe { box-shadow:none; }
+      details.loesung { page-break-before: always; }
+      a[href]:after { content:""; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar noprint">
+      <a class="back" href="index.html">← Zurück</a>
+      <button class="btn" onclick="window.print()">🖨️ Drucken / als PDF speichern</button>
+    </div>
+
+    <h1>📈 Arbeitsblatt: Funktionen</h1>
+    <p class="lead">Name: _______________________  &nbsp;&nbsp; Datum: ____________</p>
+
+    <div class="box merken noprint">
+      <span class="label">Spickzettel</span>
+      <p style="margin:0">Gerade y = m·x + b &nbsp;·&nbsp; Steigung m = Δy/Δx &nbsp;·&nbsp;
+         Scheitelform y = a·(x − d)² + e → S(d|e) &nbsp;·&nbsp;
+         p-q-Formel: x = −p/2 ± √((p/2)² − q)</p>
+    </div>
+
+    <div class="ab-aufgabe">
+      <p><span class="aufg-nr">1.</span> Eine Gerade geht durch P(0|3) und Q(4|11).</p>
+      <p>a) Steigung m = ________  b) y-Achsenabschnitt b = ________  c) Funktionsgleichung: y = ________</p>
+      <div class="rechenfeld"></div>
+    </div>
+
+    <div class="ab-aufgabe">
+      <p><span class="aufg-nr">2.</span> Gegeben ist y = −2x + 6.</p>
+      <p>a) Steigt oder fällt die Gerade? ________  b) Wo schneidet sie die y-Achse? ________
+         c) Liegt P(1|4) auf der Geraden? ________</p>
+      <div class="rechenfeld"></div>
+    </div>
+
+    <div class="ab-aufgabe">
+      <p><span class="aufg-nr">3.</span> Ordne den Parabeln zu: nach oben oder nach unten geöffnet?</p>
+      <p>a) y = 3x² → ________  b) y = −x² + 2 → ________  c) y = ½x² − 4 → ________</p>
+    </div>
+
+    <div class="ab-aufgabe">
+      <p><span class="aufg-nr">4.</span> Lies den Scheitelpunkt ab:</p>
+      <p>a) y = (x − 3)² + 2 → S( ____ | ____ )  b) y = (x + 5)² − 1 → S( ____ | ____ )
+         c) y = −(x − 2)² + 4 → S( ____ | ____ )</p>
+    </div>
+
+    <div class="ab-aufgabe">
+      <p><span class="aufg-nr">5.</span> Bestimme die Nullstellen durch Ausklammern: x² − 6x = 0.</p>
+      <p>x₁ = ________  x₂ = ________</p>
+      <div class="rechenfeld"></div>
+    </div>
+
+    <div class="ab-aufgabe">
+      <p><span class="aufg-nr">6.</span> ⭐ Löse mit der p-q-Formel: x² − 7x + 12 = 0.</p>
+      <p>x₁ = ________  x₂ = ________</p>
+      <div class="rechenfeld"></div>
+    </div>
+
+    <details class="loesung noprint">
+      <summary>✅ Lösungen anzeigen</summary>
+      <p><b>1.</b> a) m = (11 − 3)/(4 − 0) = 8/4 = 2 &nbsp; b) b = 3 &nbsp; c) y = 2x + 3</p>
+      <p><b>2.</b> a) fällt (m = −2 &lt; 0) &nbsp; b) bei (0|6) &nbsp; c) −2·1 + 6 = 4 ✓ → ja, P liegt darauf</p>
+      <p><b>3.</b> a) nach oben (a = 3 &gt; 0) &nbsp; b) nach unten (a = −1) &nbsp; c) nach oben (a = ½ &gt; 0)</p>
+      <p><b>4.</b> a) S(3|2) &nbsp; b) S(−5|−1) &nbsp; c) S(2|4)</p>
+      <p><b>5.</b> x·(x − 6) = 0 → x₁ = 0, x₂ = 6</p>
+      <p><b>6.</b> p = −7, q = 12. x = 3,5 ± √(12,25 − 12) = 3,5 ± 0,5 → x₁ = 3, x₂ = 4</p>
+    </details>
+
+    <p class="fuss">Mathe Klasse 9 · Funktionen · Arbeitsblatt</p>
+  </div>
+</body>
+</html>
