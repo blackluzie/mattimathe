@@ -5,7 +5,7 @@
 
    Beim Hinzufügen eines neuen Themas: neue HTML-Dateien unten in ASSETS
    ergänzen und die Versionsnummer (CACHE) erhöhen.                       */
-const CACHE = "mattis-mathe-v1";
+const CACHE = "mattis-mathe-v2";
 const ASSETS = [
   "./",
   "./index.html",
