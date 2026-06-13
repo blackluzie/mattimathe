@@ -1,19 +1,25 @@
 /* =====================================================================
    Cloudflare Worker – Login-Schutz für "Mattis Mathe"
    - Alle Anfragen laufen zuerst durch diesen Worker (run_worker_first).
-   - Ohne gültiges Login-Cookie wird die Login-Seite gezeigt.
+   - SSO: gültiges hk_session-Cookie (Familienportal, PIN-Login) → direkt
+     weiter, ganz ohne eigenes Passwort.
+   - Fallback: eigenes mm_auth-Cookie oder Passwort-Login (SITE_PASSWORD).
    - Nach richtigem Passwort: signiertes Cookie (HMAC-SHA256), 30 Tage gültig.
    - Mit gültigem Cookie werden die statischen Dateien aus public/ serviert.
 
    Benötigte Secrets / Variablen (per wrangler secret put):
-     SITE_PASSWORD     das Passwort für den Zugang
-     AUTH_SECRET       ein langer Zufallsstring zum Signieren der Cookies
+     SESSION_SECRET    gemeinsam mit dem Portal (SSO!) – MUSS in allen
+                       Familien-Workern denselben Wert haben.
+     SITE_PASSWORD     Fallback-Passwort für den direkten Zugang
+     AUTH_SECRET       signiert das eigene mm_auth-Cookie
      ANTHROPIC_API_KEY API-Schlüssel für die Foto-Korrektur (optional;
                        ohne ihn ist nur das Üben/Drucken aktiv)
    ===================================================================== */
 
 const COOKIE = "mm_auth";
+const HK_COOKIE = "hk_session"; // SSO-Cookie des Familienportals
 const MAX_AGE = 60 * 60 * 24 * 30; // 30 Tage in Sekunden
+const enc = new TextEncoder();
 
 /* =====================================================================
    Lösungsschlüssel pro Arbeitsblatt.
@@ -225,6 +231,15 @@ async function handle(request, env) {
       const form = await request.formData();
       const pw = (form.get("password") || "").toString();
       if (env.SITE_PASSWORD && timingSafeEqual(pw, env.SITE_PASSWORD)) {
+        if (!env.AUTH_SECRET) {
+          // Ohne AUTH_SECRET lässt sich kein signiertes Cookie erstellen.
+          // Lieber eine klare Meldung als ein kryptischer Crypto-Crash.
+          return new Response(
+            "Konfigurationsfehler: Das Secret AUTH_SECRET ist nicht gesetzt. " +
+              "Bitte setzen: wrangler secret put AUTH_SECRET --name matti-mathe",
+            { status: 500, headers: { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "no-store" } }
+          );
+        }
         const token = await makeToken(env.AUTH_SECRET, MAX_AGE);
         return new Response(null, {
           status: 302,
@@ -238,8 +253,22 @@ async function handle(request, env) {
     }
 
     // --- Auth prüfen ---
-    const cookie = parseCookie(request.headers.get("Cookie") || "")[COOKIE];
-    const ok = cookie && (await verifyToken(env.AUTH_SECRET, cookie));
+    const cookies = parseCookie(request.headers.get("Cookie") || "");
+
+    // SSO: gültiges Portal-Cookie (hk_session) reicht – kein eigenes Login.
+    let ok = false;
+    const hkToken = cookies[HK_COOKIE];
+    if (hkToken && env.SESSION_SECRET) {
+      ok = !!(await verifyPortalToken(hkToken, env));
+    }
+
+    // Fallback: eigenes mm_auth-Cookie (Passwort-Login).
+    // Nur prüfen, wenn AUTH_SECRET gesetzt ist – sonst wirft die HMAC-Importe
+    // bei leerem Schlüssel einen DataError (Crash statt Login-Seite).
+    if (!ok) {
+      const cookie = cookies[COOKIE];
+      ok = !!(cookie && env.AUTH_SECRET && (await verifyToken(env.AUTH_SECRET, cookie)));
+    }
 
     // --- Foto-Korrektur (nur eingeloggt) ---
     if (url.pathname === "/api/check-worksheet" && request.method === "POST") {
@@ -258,7 +287,15 @@ async function handle(request, env) {
         { status: 500, headers: { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "no-store" } }
       );
     }
-    return env.ASSETS.fetch(request);
+    const assetResp = await env.ASSETS.fetch(request);
+    // SW darf nie aus dem Edge-Cache kommen – sonst bekommt der Browser eine
+    // veraltete Version und der alte SW bleibt aktiv.
+    if (url.pathname === "/sw.js") {
+      const h = new Headers(assetResp.headers);
+      h.set("Cache-Control", "no-store, no-cache, must-revalidate");
+      return new Response(assetResp.body, { status: assetResp.status, statusText: assetResp.statusText, headers: h });
+    }
+    return assetResp;
 }
 
 /* ---------- Foto-Korrektur per Claude Vision ---------- */
@@ -377,6 +414,40 @@ async function handleCheckWorksheet(request, env) {
   return jsonResponse(result);
 }
 
+/* ---------- Portal-SSO (hk_session) ---------- */
+// Verifiziert das vom Familienportal gesetzte Token:
+//   base64url(JSON({u,n,d,a,c,e})) + "." + HMAC-SHA256(SESSION_SECRET)
+async function verifyPortalToken(token, env) {
+  const dot = token.lastIndexOf(".");
+  if (dot < 0) return null;
+  const payload = token.slice(0, dot);
+  const sig     = token.slice(dot + 1);
+  const expected = await hmacPortal(payload, env);
+  if (!timingSafeEqual(sig, expected)) return null;
+  try {
+    let b64 = payload.replace(/-/g, "+").replace(/_/g, "/");
+    while (b64.length % 4) b64 += "=";
+    const bin = atob(b64);
+    const bytes = new Uint8Array(bin.length);
+    for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+    const data = JSON.parse(new TextDecoder().decode(bytes));
+    if (!data.u || !data.e || Date.now() > data.e) return null;
+    return data;
+  } catch { return null; }
+}
+async function hmacPortal(data, env) {
+  const secret = env.SESSION_SECRET || "dev-secret-hoffknecht-familie";
+  const key = await crypto.subtle.importKey(
+    "raw", enc.encode(secret),
+    { name: "HMAC", hash: "SHA-256" }, false, ["sign"]
+  );
+  const sig = await crypto.subtle.sign("HMAC", key, enc.encode(data));
+  const bytes = new Uint8Array(sig);
+  let bin = "";
+  for (let i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);
+  return btoa(bin).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+}
+
 /* ---------- Cookie-Token (HMAC) ---------- */
 async function makeToken(secret, maxAgeSec) {
   const exp = Math.floor(Date.now() / 1000) + maxAgeSec;
@@ -441,6 +512,7 @@ function loginHtml(fehler) {
     border-radius:12px;padding:12px 20px;width:100%;cursor:pointer}
   .fehler{color:#D14343;font-weight:700}
   .emoji{font-size:2.4rem}
+  .portal-link{display:block;margin-top:1.2rem;color:#4338ca;font-weight:600;font-size:.95rem}
 </style></head><body>
   <form class="karte" method="POST" action="/login">
     <div class="emoji">🔒📈</div>
@@ -449,6 +521,7 @@ function loginHtml(fehler) {
     ${fehler ? '<p class="fehler">Passwort falsch – versuch es nochmal.</p>' : ""}
     <input type="password" name="password" placeholder="Passwort" autofocus autocomplete="current-password" required>
     <button type="submit">Anmelden</button>
+    <a class="portal-link" href="https://familie.hoffknecht.de">🏠 Über Familienportal anmelden</a>
   </form>
 </body></html>`;
 }
