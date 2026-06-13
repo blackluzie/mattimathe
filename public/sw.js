@@ -5,15 +5,31 @@
 
    Beim Hinzufügen eines neuen Themas: neue HTML-Dateien unten in ASSETS
    ergänzen und die Versionsnummer (CACHE) erhöhen.                       */
-const CACHE = "mattis-mathe-v1";
+const CACHE = "mattis-mathe-v2";
 const ASSETS = [
   "./",
   "./index.html",
-  "./flaeche.html",
+  "./wurzeln.html",
+  "./potenzen.html",
+  "./quadratische-gleichungen.html",
   "./funktionen.html",
+  "./flaeche.html",
+  "./pythagoras.html",
+  "./aehnlichkeit.html",
+  "./trigonometrie.html",
+  "./koerper.html",
+  "./wahrscheinlichkeit.html",
   "./korrektur.html",
-  "./arbeitsblatt-flaeche.html",
+  "./arbeitsblatt-wurzeln.html",
+  "./arbeitsblatt-potenzen.html",
+  "./arbeitsblatt-quadratische-gleichungen.html",
   "./arbeitsblatt-funktionen.html",
+  "./arbeitsblatt-flaeche.html",
+  "./arbeitsblatt-pythagoras.html",
+  "./arbeitsblatt-aehnlichkeit.html",
+  "./arbeitsblatt-trigonometrie.html",
+  "./arbeitsblatt-koerper.html",
+  "./arbeitsblatt-wahrscheinlichkeit.html",
   "./css/style.css",
   "./js/topics.js",
   "./js/quiz.js",

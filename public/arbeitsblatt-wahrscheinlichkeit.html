@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arbeitsblatt – Wahrscheinlichkeit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .aufg-nr { font-weight:800; color:var(--blau); }
+    .ab-aufgabe { margin:18px 0; padding-bottom:14px; border-bottom:1px dashed var(--line); }
+    .rechenfeld { border:2px dashed var(--line); border-radius:10px; min-height:70px; margin-top:8px; }
+    @media print {
+      .noprint { display:none !important; }
+      body { background:#fff; font-size:12pt; }
+      .wrap { max-width:100%; padding:0; }
+      .box, .ab-aufgabe { box-shadow:none; }
+      details.loesung { page-break-before: always; }
+      a[href]:after { content:""; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar noprint">
+      <a class="back" href="index.html">← Zurück</a>
+      <button class="btn" onclick="window.print()">🖨️ Drucken / als PDF speichern</button>
+    </div>
+
+    <h1>🎲 Arbeitsblatt: Wahrscheinlichkeit</h1>
+    <p class="lead">Name: _______________________  &nbsp;&nbsp; Datum: ____________</p>
+
+    <div class="box merken noprint">
+      <span class="label">Spickzettel</span>
+      <p style="margin:0">P(E) = günstige/mögliche &nbsp;·&nbsp; P(nicht E) = 1 − P(E) &nbsp;·&nbsp;
+         Pfad: Wahrscheinlichkeiten multiplizieren &nbsp;·&nbsp; mehrere Pfade: addieren</p>
+    </div>
+
+    <div class="ab-aufgabe">
+      <p><span class="aufg-nr">1.</span> Würfel: a) P(1) = ______  b) P(ungerade Zahl) = ______</p>
+      <div class="rechenfeld"></div>
+    </div>
+
+    <div class="ab-aufgabe">
+      <p><span class="aufg-nr">2.</span> Würfel: P(Zahl größer als 4) = ______</p>
+      <div class="rechenfeld"></div>
+    </div>
+
+    <div class="ab-aufgabe">
+      <p><span class="aufg-nr">3.</span> Zwei Münzen: a) P(zweimal Kopf) = ______
+         b) P(genau einmal Kopf) = ______</p>
+      <div class="rechenfeld"></div>
+    </div>
+
+    <div class="ab-aufgabe">
+      <p><span class="aufg-nr">4.</span> Urne mit 4 roten und 6 blauen Kugeln. Du ziehst eine.
+         P(rot) = ______</p>
+      <div class="rechenfeld"></div>
+    </div>
+
+    <div class="ab-aufgabe">
+      <p><span class="aufg-nr">5.</span> Aus derselben Urne ziehst du zweimal MIT Zurücklegen.
+         P(beide Male rot) = ______</p>
+      <div class="rechenfeld"></div>
+    </div>
+
+    <div class="ab-aufgabe">
+      <p><span class="aufg-nr">6.</span> ⭐ Gleiche Urne, zweimal mit Zurücklegen.
+         P(mindestens einmal rot) = ______ (Tipp: Gegenwahrscheinlichkeit)</p>
+      <div class="rechenfeld"></div>
+    </div>
+
+    <details class="loesung noprint">
+      <summary>✅ Lösungen anzeigen</summary>
+      <p><b>1.</b> a) 1/6 &nbsp; b) 3/6 = 1/2</p>
+      <p><b>2.</b> Größer als 4 sind 5 und 6 → 2/6 = 1/3</p>
+      <p><b>3.</b> a) ½·½ = 1/4 &nbsp; b) KZ oder ZK → 1/4 + 1/4 = 1/2</p>
+      <p><b>4.</b> 4/10 = 2/5</p>
+      <p><b>5.</b> 2/5 · 2/5 = 4/25</p>
+      <p><b>6.</b> 1 − P(keinmal rot) = 1 − (3/5)² = 1 − 9/25 = 16/25</p>
+    </details>
+
+    <p class="fuss">Mathe Klasse 9 · Wahrscheinlichkeit · Arbeitsblatt</p>
+  </div>
+</body>
+</html>

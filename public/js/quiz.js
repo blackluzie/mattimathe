@@ -8,8 +8,12 @@
         { typ:"mc", frage, optionen:[...], richtig:Index,
           tipp:"...", erklaerung:"..." }
    2) "input" freie (Text-)Eingabe, mehrere richtige Schreibweisen erlaubt
-        { typ:"input", frage, loesungen:["12","12cm^2"], platzhalter:"z. B. 12",
+        { typ:"input", frage, loesungen:["12","12cm^2"],
           tipp:"...", erklaerung:"..." }
+        Wichtig: KEINE Lösung als Beispiel ins Eingabefeld schreiben.
+        Das Feld zeigt immer "Deine Antwort …". Brauchst du wirklich einen
+        Format-Hinweis (z. B. "als Bruch"), nutze das Feld "hinweis" – aber
+        niemals die Lösung selbst.
 
    Aufruf:  starteQuiz("#quiz", aufgabenArray);
    ===================================================================== */
@@ -147,7 +151,7 @@ function starteQuiz(containerSelector, aufgaben) {
         <div class="frage"><span class="nr">${index + 1}</span>${a.frage}</div>
         ${a.figur ? a.figur : ""}
         <div class="eingabe-zeile">
-          <input type="text" autocomplete="off" placeholder="${a.platzhalter || "Antwort eingeben"}">
+          <input type="text" autocomplete="off" placeholder="${a.hinweis || "Deine Antwort …"}">
           <button class="btn pruefen">Prüfen</button>
         </div>
         <div class="tipp-anker"></div>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reelle Zahlen & Wurzeln – Klasse 9</title>
+  <meta name="theme-color" content="#0E7490">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar"><a class="back" href="index.html">← Zurück</a></div>
+    <h1>√ Reelle Zahlen & Wurzeln</h1>
+    <p class="lead">Was ist eine Quadratwurzel, wann ist eine Zahl irrational und wie
+       rechnet man geschickt mit Wurzeln? Hier sind alle Regeln mit Beispielen.</p>
+
+    <!-- ============ WISSEN ============ -->
+    <h2>1. Was ist eine Quadratwurzel?</h2>
+    <div class="box merken">
+      <span class="label">Merken</span>
+      <p>Die <b>Quadratwurzel</b> √a ist die <u>nicht-negative</u> Zahl, die mit sich selbst
+         malgenommen wieder a ergibt.</p>
+      <div class="formel">√a = b &nbsp; bedeutet &nbsp; b · b = a &nbsp;(mit b ≥ 0)</div>
+      <p style="margin-bottom:0">Beispiel: √49 = 7, denn 7 · 7 = 49. Die Zahl unter der Wurzel
+         heißt <b>Radikand</b>. Aus negativen Zahlen kann man keine Quadratwurzel ziehen.</p>
+    </div>
+
+    <h2>2. Rationale und irrationale Zahlen</h2>
+    <div class="box tipp">
+      <span class="label">Unterschied</span>
+      <p><b>Rationale Zahlen</b> kann man als Bruch schreiben (z. B. ¾, 0,25 = ¼, 5).
+         Ihre Dezimaldarstellung bricht ab oder wiederholt sich.</p>
+      <p style="margin-bottom:0"><b>Irrationale Zahlen</b> haben unendlich viele Nachkommastellen
+         <u>ohne</u> Muster. Beispiele: √2 ≈ 1,41421…, √3, π. Zusammen mit den rationalen Zahlen
+         bilden sie die <b>reellen Zahlen</b> ℝ.</p>
+    </div>
+    <div class="box achtung">
+      <span class="label">Trick</span>
+      <p style="margin:0">√a ist nur dann rational, wenn a eine <b>Quadratzahl</b> ist
+         (1, 4, 9, 16, 25, 36, 49, 64, 81, 100 …). √25 = 5 (rational), aber √2 ist irrational.</p>
+    </div>
+
+    <h2>3. Rechenregeln für Wurzeln</h2>
+    <div class="box merken">
+      <span class="label">Wurzelgesetze</span>
+      <div class="formel">√a · √b = √(a · b) &nbsp;&nbsp;·&nbsp;&nbsp;
+        <span class="bruch"><span class="z">√a</span><span class="n">√b</span></span> = √(a/b)
+        &nbsp;&nbsp;·&nbsp;&nbsp; (√a)² = a</div>
+      <p style="margin-bottom:0">Beispiel: √2 · √8 = √16 = 4. &nbsp; √72 / √2 = √36 = 6.</p>
+    </div>
+    <div class="box achtung">
+      <span class="label">Häufiger Fehler</span>
+      <p style="margin:0">Es gilt <b>NICHT</b> √a + √b = √(a + b)!
+         Probe: √9 + √16 = 3 + 4 = 7, aber √(9 + 16) = √25 = 5. Wurzeln darf man nur bei
+         <u>Mal und Geteilt</u> zusammenfassen, nicht bei Plus und Minus.</p>
+    </div>
+
+    <h2>4. Teilweises Wurzelziehen</h2>
+    <div class="box tipp">
+      <span class="label">So vereinfachst du</span>
+      <p>Spalte den Radikanden in eine möglichst große Quadratzahl mal einen Rest auf:</p>
+      <div class="formel">√50 = √(25 · 2) = √25 · √2 = 5 · √2</div>
+      <p style="margin-bottom:0">Weiteres Beispiel: √72 = √(36 · 2) = 6√2. &nbsp;
+         √12 = √(4 · 3) = 2√3.</p>
+    </div>
+
+    <!-- ============ ÜBEN ============ -->
+    <h2>✏️ Jetzt üben</h2>
+    <p>Tipp: Bei jeder Aufgabe kannst du dir einen <b>Tipp</b> anzeigen lassen.
+       Kommazahlen darfst du mit Komma oder Punkt schreiben.</p>
+    <div id="quiz"></div>
+
+    <p class="fuss">Mathe Klasse 9 · Reelle Zahlen & Wurzeln</p>
+  </div>
+
+  <script src="js/quiz.js"></script>
+  <script>
+    const aufgaben = [
+      {
+        typ:"input",
+        frage:"Berechne √81.",
+        loesungen:["9"],
+        tipp:"Welche Zahl mal sich selbst ergibt 81?",
+        erklaerung:"9 · 9 = 81, also √81 = 9."
+      },
+      {
+        typ:"input",
+        frage:"Berechne √144.",
+        loesungen:["12"],
+        tipp:"12 · 12 = 144.",
+        erklaerung:"√144 = 12."
+      },
+      {
+        typ:"mc",
+        frage:"Welche dieser Zahlen ist <b>irrational</b>?",
+        optionen:["√4", "√2", "√9", "√100"],
+        richtig:1,
+        tipp:"Irrational ist eine Wurzel nur, wenn der Radikand KEINE Quadratzahl ist.",
+        erklaerung:"√4 = 2, √9 = 3, √100 = 10 (alle rational). Nur √2 ≈ 1,414… ist irrational."
+      },
+      {
+        typ:"input",
+        frage:"Berechne √2 · √8.",
+        loesungen:["4"],
+        tipp:"√a · √b = √(a·b). Also √(2·8) = √16.",
+        erklaerung:"√2 · √8 = √16 = 4."
+      },
+      {
+        typ:"input",
+        frage:"Berechne √72 ÷ √2.",
+        loesungen:["6"],
+        tipp:"√a / √b = √(a/b). Also √(72/2) = √36.",
+        erklaerung:"√72 / √2 = √36 = 6."
+      },
+      {
+        typ:"input",
+        frage:"Berechne (√13)².",
+        loesungen:["13"],
+        tipp:"Wurzel und Quadrat heben sich auf.",
+        erklaerung:"(√a)² = a, also (√13)² = 13."
+      },
+      {
+        typ:"mc",
+        frage:"Stimmt die Rechnung √9 + √16 = √25?",
+        optionen:["Ja, das ergibt 5", "Nein, links steht 7, rechts 5", "Ja, beides ergibt 7"],
+        richtig:1,
+        tipp:"Rechne beide Seiten getrennt aus.",
+        erklaerung:"√9 + √16 = 3 + 4 = 7, aber √25 = 5. Wurzeln darf man bei Plus NICHT zusammenfassen."
+      },
+      {
+        typ:"input",
+        frage:"Schreibe √50 in der Form a·√2. Welche Zahl ist a?",
+        loesungen:["5"],
+        tipp:"√50 = √(25 · 2) = √25 · √2.",
+        erklaerung:"√50 = √25 · √2 = 5·√2, also a = 5."
+      },
+      {
+        typ:"input",
+        frage:"Schreibe √12 in der Form a·√3. Welche Zahl ist a?",
+        loesungen:["2"],
+        tipp:"Welche Quadratzahl steckt in 12? → 4 · 3.",
+        erklaerung:"√12 = √(4·3) = √4·√3 = 2·√3, also a = 2."
+      },
+      {
+        typ:"input",
+        frage:"Berechne √0,25.",
+        loesungen:["0.5","0,5"],
+        tipp:"0,5 · 0,5 = 0,25.",
+        erklaerung:"√0,25 = 0,5."
+      },
+      {
+        typ:"mc",
+        frage:"Zwischen welchen beiden ganzen Zahlen liegt √20?",
+        optionen:["zwischen 3 und 4", "zwischen 4 und 5", "zwischen 5 und 6", "zwischen 9 und 11"],
+        richtig:1,
+        tipp:"Suche die Quadratzahlen direkt unter und über 20.",
+        erklaerung:"16 < 20 < 25, also √16 < √20 < √25, d. h. 4 < √20 < 5 (√20 ≈ 4,47)."
+      }
+    ];
+    starteQuiz("#quiz", aufgaben);
+  </script>
+</body>
+</html>

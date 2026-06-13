@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arbeitsblatt – Satz des Pythagoras</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .aufg-nr { font-weight:800; color:var(--blau); }
+    .ab-aufgabe { margin:18px 0; padding-bottom:14px; border-bottom:1px dashed var(--line); }
+    .rechenfeld { border:2px dashed var(--line); border-radius:10px; min-height:70px; margin-top:8px; }
+    @media print {
+      .noprint { display:none !important; }
+      body { background:#fff; font-size:12pt; }
+      .wrap { max-width:100%; padding:0; }
+      .box, .ab-aufgabe { box-shadow:none; }
+      details.loesung { page-break-before: always; }
+      a[href]:after { content:""; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar noprint">
+      <a class="back" href="index.html">← Zurück</a>
+      <button class="btn" onclick="window.print()">🖨️ Drucken / als PDF speichern</button>
+    </div>
+
+    <h1>📐 Arbeitsblatt: Satz des Pythagoras</h1>
+    <p class="lead">Name: _______________________  &nbsp;&nbsp; Datum: ____________</p>
+
+    <div class="box merken noprint">
+      <span class="label">Spickzettel</span>
+      <p style="margin:0">a² + b² = c² &nbsp;·&nbsp; Hypotenuse: c = √(a²+b²) &nbsp;·&nbsp;
+         Kathete: a = √(c²−b²) &nbsp;·&nbsp; c ist die längste Seite</p>
+    </div>
+
+    <div class="ab-aufgabe">
+      <p><span class="aufg-nr">1.</span> Berechne die Hypotenuse c:</p>
+      <p>a) a = 3, b = 4 → c = ______  b) a = 8, b = 15 → c = ______</p>
+      <div class="rechenfeld"></div>
+    </div>
+
+    <div class="ab-aufgabe">
+      <p><span class="aufg-nr">2.</span> Berechne die fehlende Kathete:</p>
+      <p>a) c = 10, a = 6 → b = ______  b) c = 25, b = 24 → a = ______</p>
+      <div class="rechenfeld"></div>
+    </div>
+
+    <div class="ab-aufgabe">
+      <p><span class="aufg-nr">3.</span> Ist das Dreieck mit den Seiten 7, 24, 25 rechtwinklig?
+         Begründe mit einer Rechnung. ______</p>
+      <div class="rechenfeld"></div>
+    </div>
+
+    <div class="ab-aufgabe">
+      <p><span class="aufg-nr">4.</span> Ein Quadrat hat die Seite a = 5 cm. Wie lang ist seine Diagonale?
+         (Runde auf zwei Stellen.) d ≈ ______</p>
+      <div class="rechenfeld"></div>
+    </div>
+
+    <div class="ab-aufgabe">
+      <p><span class="aufg-nr">5.</span> ⭐ Ein Rechteck ist 12 cm lang und 5 cm breit. Wie lang ist die
+         Diagonale? ______</p>
+      <div class="rechenfeld"></div>
+    </div>
+
+    <details class="loesung noprint">
+      <summary>✅ Lösungen anzeigen</summary>
+      <p><b>1.</b> a) c² = 9+16 = 25 → c = 5 &nbsp; b) c² = 64+225 = 289 → c = 17</p>
+      <p><b>2.</b> a) b² = 100−36 = 64 → b = 8 &nbsp; b) a² = 625−576 = 49 → a = 7</p>
+      <p><b>3.</b> 7² + 24² = 49 + 576 = 625 = 25². Ja, rechtwinklig.</p>
+      <p><b>4.</b> d² = 5² + 5² = 50 → d = √50 ≈ 7,07 cm</p>
+      <p><b>5.</b> d² = 12² + 5² = 144 + 25 = 169 → d = 13 cm</p>
+    </details>
+
+    <p class="fuss">Mathe Klasse 9 · Satz des Pythagoras · Arbeitsblatt</p>
+  </div>
+</body>
+</html>

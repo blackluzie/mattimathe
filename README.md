@@ -1,9 +1,19 @@
 # Mattis Mathe – Klasse 9 (Gymnasium NRW)
 
-Ein kleines Lernprojekt zum Üben für die nächste Mathe-Arbeit. Aktuelle Themen:
+Ein kleines Lernprojekt zum Üben für die nächste Mathe-Arbeit. Es deckt die Themen
+der **Klasse 9 (Gymnasium NRW, Lambacher Schweizer 9)** ab – mit dem Schwerpunkt auf
+**interaktiven App-Übungen**; Arbeitsblätter gibt es zu jedem Thema zusätzlich. Themen:
 
-- 📐 **Flächenberechnung** – Dreieck, Parallelogramm, Trapez, Kreis, Kreissektor und zusammengesetzte Flächen
+- √ **Reelle Zahlen & Wurzeln** – Quadratwurzeln, rationale/irrationale Zahlen, Wurzelgesetze, teilweises Wurzelziehen
+- 🔢 **Potenzen & Potenzgesetze** – Rechnen mit Potenzen, negative Exponenten, wissenschaftliche Schreibweise
+- ⚖️ **Quadratische Gleichungen** – Wurzelziehen, Ausklammern, p-q-Formel, Diskriminante
 - 📈 **Funktionen** – lineare und quadratische Funktionen: Steigung, Parabel, Scheitelpunkt, Nullstellen (p-q-Formel)
+- 📐 **Flächenberechnung** – Dreieck, Parallelogramm, Trapez, Kreis, Kreissektor und zusammengesetzte Flächen
+- 📐 **Satz des Pythagoras** – fehlende Seiten im rechtwinkligen Dreieck (a² + b² = c²)
+- 🔺 **Ähnlichkeit & Strahlensätze** – zentrische Streckung, Streckfaktor, Strahlensätze, Maßstab
+- 📏 **Trigonometrie** – Sinus, Kosinus, Tangens im rechtwinkligen Dreieck (SOH CAH TOA)
+- 🧊 **Körper** – Volumen und Oberfläche von Prisma, Zylinder, Pyramide, Kegel und Kugel
+- 🎲 **Wahrscheinlichkeit** – Laplace-Formel, Gegenwahrscheinlichkeit, Baumdiagramme, Pfadregeln
 
 Es gibt **dreierlei**: eine interaktive Lern-Webseite (Erklärungen + sofortiges
 Feedback), druckbare Arbeitsblätter mit Lösungen **und** eine

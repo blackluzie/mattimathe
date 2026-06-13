@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arbeitsblatt – Reelle Zahlen & Wurzeln</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .aufg-nr { font-weight:800; color:var(--blau); }
+    .ab-aufgabe { margin:18px 0; padding-bottom:14px; border-bottom:1px dashed var(--line); }
+    .rechenfeld { border:2px dashed var(--line); border-radius:10px; min-height:70px; margin-top:8px; }
+    @media print {
+      .noprint { display:none !important; }
+      body { background:#fff; font-size:12pt; }
+      .wrap { max-width:100%; padding:0; }
+      .box, .ab-aufgabe { box-shadow:none; }
+      details.loesung { page-break-before: always; }
+      a[href]:after { content:""; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar noprint">
+      <a class="back" href="index.html">← Zurück</a>
+      <button class="btn" onclick="window.print()">🖨️ Drucken / als PDF speichern</button>
+    </div>
+
+    <h1>√ Arbeitsblatt: Reelle Zahlen & Wurzeln</h1>
+    <p class="lead">Name: _______________________  &nbsp;&nbsp; Datum: ____________</p>
+
+    <div class="box merken noprint">
+      <span class="label">Spickzettel</span>
+      <p style="margin:0">√a·√b = √(a·b) &nbsp;·&nbsp; √a/√b = √(a/b) &nbsp;·&nbsp; (√a)² = a &nbsp;·&nbsp;
+         teilweise: √50 = √(25·2) = 5√2</p>
+    </div>
+
+    <div class="ab-aufgabe">
+      <p><span class="aufg-nr">1.</span> Berechne ohne Taschenrechner:</p>
+      <p>a) √49 = ______  b) √100 = ______  c) √64 = ______  d) √0,01 = ______</p>
+      <div class="rechenfeld"></div>
+    </div>
+
+    <div class="ab-aufgabe">
+      <p><span class="aufg-nr">2.</span> Ziehe teilweise die Wurzel (Form a·√b):</p>
+      <p>a) √8 = ______  b) √18 = ______  c) √45 = ______</p>
+      <div class="rechenfeld"></div>
+    </div>
+
+    <div class="ab-aufgabe">
+      <p><span class="aufg-nr">3.</span> Fasse mit den Wurzelgesetzen zusammen:</p>
+      <p>a) √3 · √12 = ______  b) √50 ÷ √2 = ______</p>
+      <div class="rechenfeld"></div>
+    </div>
+
+    <div class="ab-aufgabe">
+      <p><span class="aufg-nr">4.</span> Welche dieser Zahlen sind irrational? Kreise sie ein:
+         &nbsp; √16 &nbsp; √7 &nbsp; √81 &nbsp; √5</p>
+      <div class="rechenfeld"></div>
+    </div>
+
+    <div class="ab-aufgabe">
+      <p><span class="aufg-nr">5.</span> ⭐ Zwischen welchen beiden ganzen Zahlen liegt √30? ______ und ______</p>
+      <div class="rechenfeld"></div>
+    </div>
+
+    <details class="loesung noprint">
+      <summary>✅ Lösungen anzeigen</summary>
+      <p><b>1.</b> a) 7 &nbsp; b) 10 &nbsp; c) 8 &nbsp; d) 0,1</p>
+      <p><b>2.</b> a) √8 = 2√2 &nbsp; b) √18 = 3√2 &nbsp; c) √45 = 3√5</p>
+      <p><b>3.</b> a) √36 = 6 &nbsp; b) √25 = 5</p>
+      <p><b>4.</b> Irrational sind √7 und √5 (√16 = 4 und √81 = 9 sind rational).</p>
+      <p><b>5.</b> 25 < 30 < 36, also liegt √30 zwischen 5 und 6 (√30 ≈ 5,48).</p>
+    </details>
+
+    <p class="fuss">Mathe Klasse 9 · Reelle Zahlen & Wurzeln · Arbeitsblatt</p>
+  </div>
+</body>
+</html>

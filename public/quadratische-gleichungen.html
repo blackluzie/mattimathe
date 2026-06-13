@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quadratische Gleichungen – Klasse 9</title>
+  <meta name="theme-color" content="#0E7490">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar"><a class="back" href="index.html">← Zurück</a></div>
+    <h1>⚖️ Quadratische Gleichungen</h1>
+    <p class="lead">Gleichungen mit x² löst du nicht durch Umstellen allein. Hier lernst du
+       die drei wichtigsten Werkzeuge: Wurzelziehen, Ausklammern und die p-q-Formel.</p>
+
+    <!-- ============ WISSEN ============ -->
+    <h2>1. Die Normalform</h2>
+    <div class="box merken">
+      <span class="label">Merken</span>
+      <p>Bringe die Gleichung zuerst auf die <b>Normalform</b> (alles auf eine Seite, vor x² steht 1):</p>
+      <div class="formel">x² + p·x + q = 0</div>
+      <p style="margin-bottom:0">Dann entscheidest du, welches Werkzeug am schnellsten ist.</p>
+    </div>
+
+    <h2>2. Reinquadratisch (kein einzelnes x)</h2>
+    <div class="box tipp">
+      <span class="label">Wurzel ziehen</span>
+      <p>Steht nur x² (kein einfaches x), löst du durch Wurzelziehen – und denk an das ±!</p>
+      <div class="formel">x² = 49 &nbsp;→&nbsp; x = ±√49 = ±7</div>
+      <p style="margin-bottom:0">Also x₁ = 7 und x₂ = −7. (Ist die Zahl negativ, z. B. x² = −4, gibt es keine Lösung.)</p>
+    </div>
+
+    <h2>3. Ausklammern (kein einzelnes q)</h2>
+    <div class="box tipp">
+      <span class="label">Satz vom Nullprodukt</span>
+      <p>Fehlt das absolute Glied, klammere x aus. Ein Produkt ist 0, wenn ein Faktor 0 ist:</p>
+      <div class="formel">x² − 5x = 0 &nbsp;→&nbsp; x·(x − 5) = 0 &nbsp;→&nbsp; x₁ = 0, x₂ = 5</div>
+      <p style="margin-bottom:0">Eine der Lösungen ist hier immer 0.</p>
+    </div>
+
+    <h2>4. Die p-q-Formel (der Allrounder)</h2>
+    <div class="box merken">
+      <span class="label">Formel</span>
+      <div class="formel">x<sub>1,2</sub> = −
+        <span class="bruch"><span class="z">p</span><span class="n">2</span></span>
+        ± √( (<span class="bruch"><span class="z">p</span><span class="n">2</span></span>)² − q )</div>
+      <p style="margin-bottom:0">Beispiel: x² − 6x + 8 = 0 → p = −6, q = 8.
+         −p/2 = 3, unter der Wurzel 3² − 8 = 1. → x = 3 ± 1 → x₁ = 4, x₂ = 2.</p>
+    </div>
+    <div class="box achtung">
+      <span class="label">Diskriminante D</span>
+      <p style="margin:0">Der Term unter der Wurzel <b>D = (p/2)² − q</b> verrät die Anzahl der Lösungen:
+         D &gt; 0 → zwei Lösungen, D = 0 → eine Lösung, D &lt; 0 → keine Lösung.</p>
+    </div>
+
+    <!-- ============ ÜBEN ============ -->
+    <h2>✏️ Jetzt üben</h2>
+    <p>Wenn nach „der größeren Lösung“ gefragt wird, gib nur diese eine Zahl ein.</p>
+    <div id="quiz"></div>
+
+    <p class="fuss">Mathe Klasse 9 · Quadratische Gleichungen</p>
+  </div>
+
+  <script src="js/quiz.js"></script>
+  <script>
+    const aufgaben = [
+      {
+        typ:"mc",
+        frage:"Wie viele Lösungen hat x² = 25?",
+        optionen:["Keine", "Genau eine (x = 5)", "Zwei (x = 5 und x = −5)", "Unendlich viele"],
+        richtig:2,
+        tipp:"Beim Wurzelziehen entstehen ein + und ein − Wert.",
+        erklaerung:"x = ±√25 = ±5, also x₁ = 5 und x₂ = −5."
+      },
+      {
+        typ:"input",
+        frage:"Löse x² = 81. Gib die positive Lösung an.",
+        loesungen:["9"],
+        tipp:"x = ±√81.",
+        erklaerung:"x = ±9, die positive Lösung ist 9."
+      },
+      {
+        typ:"input",
+        frage:"Löse x² − 7x = 0 durch Ausklammern. Eine Lösung ist 0 – wie heißt die andere?",
+        loesungen:["7"],
+        tipp:"x·(x − 7) = 0. Der zweite Faktor wird 0, wenn …",
+        erklaerung:"x·(x − 7) = 0 → x₁ = 0, x₂ = 7."
+      },
+      {
+        typ:"mc",
+        frage:"Welches Werkzeug passt am besten zu x² − 9x = 0?",
+        optionen:["p-q-Formel", "Wurzel ziehen", "Ausklammern (x ausklammern)", "Gar nicht lösbar"],
+        richtig:2,
+        tipp:"Es fehlt das absolute Glied (kein q).",
+        erklaerung:"Kein konstantes Glied → x ausklammern: x·(x − 9) = 0."
+      },
+      {
+        typ:"input",
+        frage:"Löse x² − 6x + 8 = 0 mit der p-q-Formel. Gib die größere Lösung an.",
+        loesungen:["4"],
+        tipp:"p = −6, q = 8. −p/2 = 3, unter der Wurzel 3² − 8 = 1.",
+        erklaerung:"x = 3 ± 1 → x₁ = 4, x₂ = 2. Die größere ist 4."
+      },
+      {
+        typ:"input",
+        frage:"Löse x² − 6x + 8 = 0. Gib jetzt die kleinere Lösung an.",
+        loesungen:["2"],
+        tipp:"Gleiche Rechnung wie eben, nur 3 − 1.",
+        erklaerung:"x = 3 ± 1 → die kleinere Lösung ist 2."
+      },
+      {
+        typ:"input",
+        frage:"Löse x² + 2x − 15 = 0. Gib die positive Lösung an.",
+        loesungen:["3"],
+        tipp:"p = 2, q = −15. −p/2 = −1, unter der Wurzel 1 + 15 = 16.",
+        erklaerung:"x = −1 ± 4 → x₁ = 3, x₂ = −5. Die positive Lösung ist 3."
+      },
+      {
+        typ:"input",
+        frage:"Berechne die Diskriminante D = (p/2)² − q für x² + 4x + 5 = 0.",
+        loesungen:["-1","−1"],
+        tipp:"p = 4, q = 5. (4/2)² − 5.",
+        erklaerung:"D = 2² − 5 = 4 − 5 = −1."
+      },
+      {
+        typ:"mc",
+        frage:"Die Diskriminante ist D = −1. Wie viele Lösungen hat die Gleichung?",
+        optionen:["Zwei Lösungen", "Eine Lösung", "Keine Lösung"],
+        richtig:2,
+        tipp:"D < 0 bedeutet: Wurzel aus einer negativen Zahl – das geht nicht.",
+        erklaerung:"D < 0 → keine (reelle) Lösung."
+      },
+      {
+        typ:"input",
+        frage:"Die Lösungen einer Gleichung x² + p·x + q = 0 sind x₁ = 2 und x₂ = 3. Wie groß ist q? (Tipp von Vieta: q = x₁ · x₂)",
+        loesungen:["6"],
+        tipp:"Nach Vieta ist q das Produkt der beiden Lösungen.",
+        erklaerung:"q = 2 · 3 = 6 (die Gleichung lautet x² − 5x + 6 = 0)."
+      }
+    ];
+    starteQuiz("#quiz", aufgaben);
+  </script>
+</body>
+</html>

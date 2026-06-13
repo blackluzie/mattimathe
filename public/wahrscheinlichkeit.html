@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wahrscheinlichkeit – Klasse 9</title>
+  <meta name="theme-color" content="#0E7490">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar"><a class="back" href="index.html">← Zurück</a></div>
+    <h1>🎲 Wahrscheinlichkeit</h1>
+    <p class="lead">Wie wahrscheinlich ist ein Ereignis? Mit der Laplace-Formel, Baumdiagrammen
+       und den Pfadregeln rechnest du auch bei mehrstufigen Zufallsexperimenten.</p>
+
+    <!-- ============ WISSEN ============ -->
+    <h2>1. Die Laplace-Formel</h2>
+    <div class="box merken">
+      <span class="label">Merken</span>
+      <div class="formel">P(E) =
+        <span class="bruch"><span class="z">Anzahl günstiger Ergebnisse</span><span class="n">Anzahl aller Ergebnisse</span></span>
+      </div>
+      <p style="margin-bottom:0">Gilt, wenn alle Ergebnisse <b>gleich wahrscheinlich</b> sind
+         (z. B. fairer Würfel). Jede Wahrscheinlichkeit liegt zwischen 0 und 1.</p>
+    </div>
+
+    <h2>2. Gegenwahrscheinlichkeit</h2>
+    <div class="box tipp">
+      <span class="label">Trick</span>
+      <div class="formel">P(nicht E) = 1 − P(E)</div>
+      <p style="margin-bottom:0">Beispiel Würfel: P(eine 6) = 1/6, also P(keine 6) = 1 − 1/6 = 5/6.
+         Oft ist der „Gegenweg“ viel schneller zu rechnen.</p>
+    </div>
+
+    <h2>3. Mehrstufige Experimente & Pfadregeln</h2>
+    <div class="box merken">
+      <span class="label">Baumdiagramm</span>
+      <p>Bei mehreren Stufen (z. B. zweimal ziehen) hilft ein Baumdiagramm:</p>
+      <p style="margin:0"><b>Produktregel (1. Pfadregel):</b> Entlang eines Pfades werden die
+         Wahrscheinlichkeiten <b>multipliziert</b>.<br>
+         <b>Summenregel (2. Pfadregel):</b> Führen mehrere Pfade zum Ziel, werden ihre
+         Wahrscheinlichkeiten <b>addiert</b>.</p>
+    </div>
+    <div class="box tipp">
+      <span class="label">Beispiel</span>
+      <p>Zweimal hintereinander eine Münze werfen. P(zweimal Kopf):</p>
+      <div class="formel">P = ½ · ½ = ¼</div>
+      <p style="margin-bottom:0">Beide Würfe sind unabhängig – darum multiplizieren.</p>
+    </div>
+
+    <!-- ============ ÜBEN ============ -->
+    <h2>✏️ Jetzt üben</h2>
+    <p>Antworten als Bruch (z. B. <code>3/4</code>) oder als Dezimalzahl – beides wird erkannt.</p>
+    <div id="quiz"></div>
+
+    <p class="fuss">Mathe Klasse 9 · Wahrscheinlichkeit</p>
+  </div>
+
+  <script src="js/quiz.js"></script>
+  <script>
+    const aufgaben = [
+      {
+        typ:"input",
+        frage:"Du würfelst mit einem normalen Würfel. Wie groß ist P(6)?",
+        loesungen:["1/6"],
+        tipp:"Eine günstige Zahl (die 6) von sechs möglichen.",
+        erklaerung:"P(6) = 1/6."
+      },
+      {
+        typ:"input",
+        frage:"Wie groß ist beim Würfel P(gerade Zahl)? (Bruch oder Dezimalzahl)",
+        loesungen:["1/2","3/6","0.5","0,5"],
+        tipp:"Gerade Zahlen sind 2, 4, 6 – also 3 von 6.",
+        erklaerung:"P = 3/6 = 1/2 = 0,5."
+      },
+      {
+        typ:"mc",
+        frage:"Was bedeutet die Laplace-Formel P(E) = günstige / mögliche?",
+        optionen:[
+          "Sie gilt immer, egal wie",
+          "Sie gilt nur, wenn alle Ergebnisse gleich wahrscheinlich sind",
+          "Sie gilt nur bei Münzwürfen"
+        ],
+        richtig:1,
+        tipp:"Denke an einen fairen Würfel oder eine faire Münze.",
+        erklaerung:"Die Laplace-Formel setzt voraus, dass alle Ergebnisse gleich wahrscheinlich sind."
+      },
+      {
+        typ:"input",
+        frage:"Wie groß ist beim Würfel P(keine 6)? (Bruch)",
+        loesungen:["5/6"],
+        tipp:"Gegenwahrscheinlichkeit: 1 − P(6).",
+        erklaerung:"P(keine 6) = 1 − 1/6 = 5/6."
+      },
+      {
+        typ:"input",
+        frage:"Du wirfst zweimal eine Münze. Wie groß ist P(zweimal Kopf)? (Bruch oder Dezimalzahl)",
+        loesungen:["1/4","0.25","0,25"],
+        tipp:"Produktregel: ½ · ½.",
+        erklaerung:"P = ½ · ½ = ¼ = 0,25."
+      },
+      {
+        typ:"input",
+        frage:"In einer Urne sind 3 rote und 2 blaue Kugeln. Du ziehst eine. Wie groß ist P(rot)? (Bruch oder Dezimalzahl)",
+        loesungen:["3/5","0.6","0,6"],
+        tipp:"3 rote von insgesamt 5 Kugeln.",
+        erklaerung:"P(rot) = 3/5 = 0,6."
+      },
+      {
+        typ:"input",
+        frage:"Aus derselben Urne (3 rot, 2 blau) ziehst du zweimal MIT Zurücklegen. Wie groß ist P(zweimal rot)? (Bruch)",
+        loesungen:["9/25"],
+        tipp:"Produktregel: 3/5 · 3/5.",
+        erklaerung:"P = 3/5 · 3/5 = 9/25 (= 0,36)."
+      },
+      {
+        typ:"mc",
+        frage:"Welche Wahrscheinlichkeit hat ein Ereignis, das ganz sicher eintritt?",
+        optionen:["0", "1/2", "1", "Das kommt darauf an"],
+        richtig:2,
+        tipp:"Sicher = 100 %.",
+        erklaerung:"Ein sicheres Ereignis hat P = 1 (= 100 %). Unmöglich wäre P = 0."
+      }
+    ];
+    starteQuiz("#quiz", aufgaben);
+  </script>
+</body>
+</html>

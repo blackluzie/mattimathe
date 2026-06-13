@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trigonometrie – Klasse 9</title>
+  <meta name="theme-color" content="#0E7490">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar"><a class="back" href="index.html">← Zurück</a></div>
+    <h1>📏 Trigonometrie</h1>
+    <p class="lead">Sinus, Kosinus und Tangens verbinden im rechtwinkligen Dreieck einen Winkel
+       mit den Seitenlängen. Damit berechnest du Winkel oder fehlende Seiten.</p>
+
+    <!-- ============ WISSEN ============ -->
+    <h2>1. Die drei Verhältnisse</h2>
+    <div class="box merken">
+      <span class="label">Merken: „SOH CAH TOA“</span>
+      <div class="formel">
+        sin α = <span class="bruch"><span class="z">Gegenkathete</span><span class="n">Hypotenuse</span></span> ·
+        cos α = <span class="bruch"><span class="z">Ankathete</span><span class="n">Hypotenuse</span></span> ·
+        tan α = <span class="bruch"><span class="z">Gegenkathete</span><span class="n">Ankathete</span></span>
+      </div>
+      <p style="margin-bottom:0">Die <b>Gegenkathete</b> liegt dem Winkel α gegenüber, die
+         <b>Ankathete</b> liegt am Winkel an. Die <b>Hypotenuse</b> ist die längste Seite.</p>
+    </div>
+
+    <h2>2. Wichtige Winkelwerte</h2>
+    <div class="box tipp">
+      <span class="label">Auswendig praktisch</span>
+      <table class="daten">
+        <tr><th>α</th><th>sin α</th><th>cos α</th><th>tan α</th></tr>
+        <tr><td>30°</td><td>0,5</td><td>≈ 0,87</td><td>≈ 0,58</td></tr>
+        <tr><td>45°</td><td>≈ 0,71</td><td>≈ 0,71</td><td>1</td></tr>
+        <tr><td>60°</td><td>≈ 0,87</td><td>0,5</td><td>≈ 1,73</td></tr>
+      </table>
+      <p style="margin-bottom:0">Den Winkel zu einem Verhältnis bekommst du mit den Tasten
+         sin⁻¹, cos⁻¹, tan⁻¹ am Taschenrechner.</p>
+    </div>
+
+    <h2>3. Eine Seite berechnen</h2>
+    <div class="box tipp">
+      <span class="label">Beispiel</span>
+      <p>Hypotenuse = 10 cm, Winkel α = 30°. Gesucht ist die Gegenkathete:</p>
+      <div class="formel">sin 30° = Gegenkathete / 10 &nbsp;→&nbsp; Gegenkathete = 10 · sin 30° = 10 · 0,5 = 5 cm</div>
+      <p style="margin-bottom:0">Erst die passende Formel wählen (welche Seiten kennst/suchst du?),
+         dann nach der gesuchten Seite umstellen.</p>
+    </div>
+    <div class="box achtung">
+      <span class="label">Stell den Taschenrechner ein</span>
+      <p style="margin:0">Achte darauf, dass dein Rechner im <b>DEG</b>-Modus (Grad) steht, nicht in RAD!
+         Sonst kommen falsche Werte heraus.</p>
+    </div>
+
+    <!-- ============ ÜBEN ============ -->
+    <h2>✏️ Jetzt üben</h2>
+    <p>Winkel gibst du in Grad ein (z. B. die Zahl ohne „°“). Verhältnisse als Dezimalzahl.</p>
+    <div id="quiz"></div>
+
+    <p class="fuss">Mathe Klasse 9 · Trigonometrie</p>
+  </div>
+
+  <script src="js/quiz.js"></script>
+  <script>
+    const aufgaben = [
+      {
+        typ:"mc",
+        frage:"Wie ist der Sinus eines Winkels definiert?",
+        optionen:[
+          "Ankathete ÷ Hypotenuse",
+          "Gegenkathete ÷ Hypotenuse",
+          "Gegenkathete ÷ Ankathete",
+          "Hypotenuse ÷ Gegenkathete"
+        ],
+        richtig:1,
+        tipp:"SOH: Sinus = Opposite (Gegenkathete) / Hypotenuse.",
+        erklaerung:"sin α = Gegenkathete / Hypotenuse."
+      },
+      {
+        typ:"mc",
+        frage:"Welches Verhältnis berechnest du mit Ankathete ÷ Hypotenuse?",
+        optionen:["Sinus", "Kosinus", "Tangens"],
+        richtig:1,
+        tipp:"CAH: Cosinus = Adjacent (Ankathete) / Hypotenuse.",
+        erklaerung:"cos α = Ankathete / Hypotenuse."
+      },
+      {
+        typ:"input",
+        frage:"In einem Dreieck ist die Gegenkathete 3 und die Hypotenuse 6. Wie groß ist sin α (als Dezimalzahl)?",
+        loesungen:["0.5","0,5"],
+        tipp:"sin α = Gegenkathete / Hypotenuse = 3/6.",
+        erklaerung:"sin α = 3/6 = 0,5."
+      },
+      {
+        typ:"input",
+        frage:"Es gilt sin α = 0,5. Wie groß ist der Winkel α (in Grad)?",
+        loesungen:["30","30°"],
+        tipp:"Nutze sin⁻¹(0,5) – oder schau in die Tabelle oben.",
+        erklaerung:"sin 30° = 0,5, also α = 30°."
+      },
+      {
+        typ:"input",
+        frage:"Gegenkathete = 5, Ankathete = 5. Wie groß ist tan α (als Dezimalzahl)?",
+        loesungen:["1"],
+        tipp:"tan α = Gegenkathete / Ankathete = 5/5.",
+        erklaerung:"tan α = 5/5 = 1."
+      },
+      {
+        typ:"input",
+        frage:"tan α = 1. Wie groß ist der Winkel α (in Grad)?",
+        loesungen:["45","45°"],
+        tipp:"Bei welchem Winkel sind Gegen- und Ankathete gleich lang?",
+        erklaerung:"tan 45° = 1, also α = 45°."
+      },
+      {
+        typ:"input",
+        frage:"Berechne cos 60° (als Dezimalzahl).",
+        loesungen:["0.5","0,5"],
+        tipp:"Schau in die Wertetabelle.",
+        erklaerung:"cos 60° = 0,5."
+      },
+      {
+        typ:"input",
+        frage:"Hypotenuse = 10 cm, Winkel α = 30°. Wie lang ist die Gegenkathete (in cm)?",
+        loesungen:["5"],
+        tipp:"Gegenkathete = Hypotenuse · sin α = 10 · 0,5.",
+        erklaerung:"10 · sin 30° = 10 · 0,5 = 5 cm."
+      },
+      {
+        typ:"input",
+        frage:"Hypotenuse = 10 cm, Winkel α = 60°. Wie lang ist die Ankathete (in cm)?",
+        loesungen:["5"],
+        tipp:"Ankathete = Hypotenuse · cos α = 10 · cos 60°.",
+        erklaerung:"10 · cos 60° = 10 · 0,5 = 5 cm."
+      }
+    ];
+    starteQuiz("#quiz", aufgaben);
+  </script>
+</body>
+</html>

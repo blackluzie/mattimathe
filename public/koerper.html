@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Körper: Volumen & Oberfläche – Klasse 9</title>
+  <meta name="theme-color" content="#0E7490">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar"><a class="back" href="index.html">← Zurück</a></div>
+    <h1>🧊 Körper: Volumen & Oberfläche</h1>
+    <p class="lead">Wie viel passt hinein (Volumen) und wie viel Material umhüllt den Körper
+       (Oberfläche)? Hier sind die Formeln für Prisma, Zylinder, Pyramide, Kegel und Kugel.</p>
+
+    <!-- ============ WISSEN ============ -->
+    <h2>1. Die Volumenformeln</h2>
+    <div class="box merken">
+      <span class="label">Merken</span>
+      <table class="daten">
+        <tr><th>Körper</th><th>Volumen V</th></tr>
+        <tr><td>Würfel (Kante a)</td><td>a³</td></tr>
+        <tr><td>Quader</td><td>a · b · c</td></tr>
+        <tr><td>Prisma / Zylinder</td><td>Grundfläche · Höhe = G · h</td></tr>
+        <tr><td>Zylinder (Radius r)</td><td>π · r² · h</td></tr>
+        <tr><td>Pyramide / Kegel</td><td>⅓ · G · h</td></tr>
+        <tr><td>Kegel (Radius r)</td><td>⅓ · π · r² · h</td></tr>
+        <tr><td>Kugel (Radius r)</td><td>⁴⁄₃ · π · r³</td></tr>
+      </table>
+      <p style="margin-bottom:0"><b>Eselsbrücke:</b> Spitze Körper (Pyramide, Kegel) haben das
+         <b>⅓</b> – sie passen dreimal in das „gerade“ Gegenstück mit gleicher Grundfläche.</p>
+    </div>
+
+    <h2>2. Oberflächen</h2>
+    <div class="box tipp">
+      <span class="label">Häufig gebraucht</span>
+      <div class="formel">Würfel: O = 6 · a² &nbsp;·&nbsp; Zylinder: O = 2·π·r² + 2·π·r·h &nbsp;·&nbsp; Kugel: O = 4·π·r²</div>
+      <p style="margin-bottom:0">Bei zusammengesetzten Körpern zählst du alle Außenflächen einzeln
+         zusammen. Der Zylinder-Mantel ist ein „abgerolltes“ Rechteck: 2·π·r (Umfang) mal h.</p>
+    </div>
+
+    <h2>3. Beispiel Zylinder</h2>
+    <div class="box tipp">
+      <span class="label">Schritt für Schritt</span>
+      <p>Radius r = 2 cm, Höhe h = 5 cm (π ≈ 3,14):</p>
+      <div class="formel">V = π · r² · h = π · 4 · 5 = 20·π ≈ 62,8 cm³</div>
+      <p style="margin-bottom:0">Volumen wird in <b>Kubik-Einheiten</b> (cm³, m³) angegeben, Oberfläche in cm².</p>
+    </div>
+    <div class="box achtung">
+      <span class="label">Vorsicht</span>
+      <p style="margin:0">Erst <b>r²</b> rechnen, dann mal π und mal h. Bei Kegel und Pyramide das
+         <b>⅓</b> nicht vergessen!</p>
+    </div>
+
+    <!-- ============ ÜBEN ============ -->
+    <h2>✏️ Jetzt üben</h2>
+    <p>Rechne mit π ≈ 3,14 und runde, falls nötig, auf eine Nachkommastelle. Einheit kannst du weglassen.</p>
+    <div id="quiz"></div>
+
+    <p class="fuss">Mathe Klasse 9 · Körper: Volumen & Oberfläche</p>
+  </div>
+
+  <script src="js/quiz.js"></script>
+  <script>
+    const aufgaben = [
+      {
+        typ:"input",
+        frage:"Würfel mit der Kante a = 3 cm. Wie groß ist das Volumen (in cm³)?",
+        loesungen:["27"],
+        tipp:"V = a³ = 3 · 3 · 3.",
+        erklaerung:"V = 3³ = 27 cm³."
+      },
+      {
+        typ:"input",
+        frage:"Quader mit a = 2 cm, b = 3 cm, c = 4 cm. Volumen (in cm³)?",
+        loesungen:["24"],
+        tipp:"V = a · b · c.",
+        erklaerung:"V = 2 · 3 · 4 = 24 cm³."
+      },
+      {
+        typ:"input",
+        frage:"Prisma mit Grundfläche G = 10 cm² und Höhe h = 7 cm. Volumen (in cm³)?",
+        loesungen:["70"],
+        tipp:"V = G · h.",
+        erklaerung:"V = 10 · 7 = 70 cm³."
+      },
+      {
+        typ:"mc",
+        frage:"Welche Formel berechnet das Volumen eines Zylinders?",
+        optionen:["2·π·r·h", "π·r²·h", "⅓·π·r²·h", "4·π·r²"],
+        richtig:1,
+        tipp:"Grundfläche (ein Kreis) mal Höhe.",
+        erklaerung:"V = Grundfläche · Höhe = π·r²·h."
+      },
+      {
+        typ:"input",
+        frage:"Zylinder mit r = 2 cm und h = 5 cm (π ≈ 3,14). Volumen (in cm³, eine Nachkommastelle)?",
+        loesungen:["62.8","62,8"],
+        tipp:"V = π·r²·h = π·4·5.",
+        erklaerung:"V = π·20 ≈ 3,14·20 ≈ 62,8 cm³."
+      },
+      {
+        typ:"input",
+        frage:"Pyramide mit Grundfläche G = 12 cm² und Höhe h = 5 cm. Volumen (in cm³)?",
+        loesungen:["20"],
+        tipp:"V = ⅓·G·h. Das ⅓ nicht vergessen!",
+        erklaerung:"V = ⅓·12·5 = 60/3 = 20 cm³."
+      },
+      {
+        typ:"input",
+        frage:"Kegel mit r = 3 cm und h = 4 cm (π ≈ 3,14). Volumen (in cm³, eine Nachkommastelle)?",
+        loesungen:["37.7","37,7","37.68"],
+        tipp:"V = ⅓·π·r²·h = ⅓·π·9·4.",
+        erklaerung:"V = ⅓·π·36 = 12·π ≈ 37,7 cm³."
+      },
+      {
+        typ:"input",
+        frage:"Kugel mit r = 3 cm (π ≈ 3,14). Volumen (in cm³, eine Nachkommastelle)?",
+        loesungen:["113.1","113,1","113.04"],
+        tipp:"V = ⁴⁄₃·π·r³ = ⁴⁄₃·π·27.",
+        erklaerung:"V = ⁴⁄₃·π·27 = 36·π ≈ 113,1 cm³."
+      },
+      {
+        typ:"input",
+        frage:"Würfel mit a = 2 cm. Wie groß ist die Oberfläche (in cm²)?",
+        loesungen:["24"],
+        tipp:"O = 6·a² (sechs gleiche Quadrate).",
+        erklaerung:"O = 6·2² = 6·4 = 24 cm²."
+      }
+    ];
+    starteQuiz("#quiz", aufgaben);
+  </script>
+</body>
+</html>
