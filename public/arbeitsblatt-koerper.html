@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arbeitsblatt – Körper: Volumen & Oberfläche</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .aufg-nr { font-weight:800; color:var(--blau); }
+    .ab-aufgabe { margin:18px 0; padding-bottom:14px; border-bottom:1px dashed var(--line); }
+    .rechenfeld { border:2px dashed var(--line); border-radius:10px; min-height:70px; margin-top:8px; }
+    @media print {
+      .noprint { display:none !important; }
+      body { background:#fff; font-size:12pt; }
+      .wrap { max-width:100%; padding:0; }
+      .box, .ab-aufgabe { box-shadow:none; }
+      details.loesung { page-break-before: always; }
+      a[href]:after { content:""; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar noprint">
+      <a class="back" href="klasse9.html">← Zurück</a>
+      <button class="btn" onclick="window.print()">🖨️ Drucken / als PDF speichern</button>
+    </div>
+
+    <h1>🧊 Arbeitsblatt: Körper – Volumen & Oberfläche</h1>
+    <p class="lead">Name: _______________________  &nbsp;&nbsp; Datum: ____________</p>
+
+    <div class="box merken noprint">
+      <span class="label">Spickzettel</span>
+      <p style="margin:0">Quader V = a·b·c &nbsp;·&nbsp; Zylinder V = π·r²·h &nbsp;·&nbsp;
+         Pyramide/Kegel V = ⅓·G·h &nbsp;·&nbsp; Kugel V = ⁴⁄₃·π·r³ &nbsp;·&nbsp; (π ≈ 3,14)</p>
+    </div>
+
+    <div class="ab-aufgabe">
+      <p><span class="aufg-nr">1.</span> Würfel mit a = 4 cm. a) Volumen ______  b) Oberfläche ______</p>
+      <div class="rechenfeld"></div>
+    </div>
+
+    <div class="ab-aufgabe">
+      <p><span class="aufg-nr">2.</span> Quader mit a = 5 cm, b = 3 cm, c = 2 cm. Volumen ______</p>
+      <div class="rechenfeld"></div>
+    </div>
+
+    <div class="ab-aufgabe">
+      <p><span class="aufg-nr">3.</span> Zylinder mit r = 3 cm, h = 10 cm (π ≈ 3,14). Volumen ≈ ______</p>
+      <div class="rechenfeld"></div>
+    </div>
+
+    <div class="ab-aufgabe">
+      <p><span class="aufg-nr">4.</span> Pyramide mit Grundfläche G = 15 cm² und Höhe h = 6 cm. Volumen ______</p>
+      <div class="rechenfeld"></div>
+    </div>
+
+    <div class="ab-aufgabe">
+      <p><span class="aufg-nr">5.</span> Kegel mit r = 2 cm, h = 6 cm (π ≈ 3,14). Volumen ≈ ______</p>
+      <div class="rechenfeld"></div>
+    </div>
+
+    <div class="ab-aufgabe">
+      <p><span class="aufg-nr">6.</span> ⭐ Kugel mit r = 6 cm (π ≈ 3,14). Volumen ≈ ______</p>
+      <div class="rechenfeld"></div>
+    </div>
+
+    <details class="loesung noprint">
+      <summary>✅ Lösungen anzeigen</summary>
+      <p><b>1.</b> a) V = 4³ = 64 cm³ &nbsp; b) O = 6·4² = 96 cm²</p>
+      <p><b>2.</b> V = 5·3·2 = 30 cm³</p>
+      <p><b>3.</b> V = π·3²·10 = π·90 ≈ 282,7 cm³</p>
+      <p><b>4.</b> V = ⅓·15·6 = 30 cm³</p>
+      <p><b>5.</b> V = ⅓·π·2²·6 = ⅓·π·24 = 8π ≈ 25,1 cm³</p>
+      <p><b>6.</b> V = ⁴⁄₃·π·6³ = ⁴⁄₃·π·216 = 288π ≈ 904,8 cm³</p>
+    </details>
+
+    <p class="fuss">Mathe Klasse 9 · Körper: Volumen & Oberfläche · Arbeitsblatt</p>
+  </div>
+</body>
+</html>

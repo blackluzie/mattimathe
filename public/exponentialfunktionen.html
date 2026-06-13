@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exponentialfunktionen & Wachstum – Klasse 10</title>
+  <meta name="theme-color" content="#0E7490">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar"><a class="back" href="klasse10.html">← Zurück</a></div>
+    <h1>🚀 Exponentialfunktionen & Wachstum</h1>
+    <p class="lead">Wenn etwas in jedem Schritt mit demselben Faktor multipliziert wird (statt
+       addiert), wächst oder fällt es exponentiell. Damit beschreibt man Zinsen, Bakterien,
+       radioaktiven Zerfall und vieles mehr.</p>
+
+    <!-- ============ WISSEN ============ -->
+    <h2>1. Die Exponentialfunktion</h2>
+    <div class="box merken">
+      <span class="label">Merken</span>
+      <div class="formel">f(x) = a · b<sup>x</sup></div>
+      <p style="margin-bottom:0"><b>a</b> ist der <b>Startwert</b> (bei x = 0), denn b⁰ = 1.
+         <b>b</b> ist der <b>Wachstumsfaktor</b> – beim Exponential steht das x oben im Exponenten!</p>
+    </div>
+
+    <h2>2. Wachstum oder Zerfall?</h2>
+    <div class="box tipp">
+      <span class="label">Der Faktor b verrät es</span>
+      <table class="daten">
+        <tr><th>Faktor b</th><th>Bedeutung</th></tr>
+        <tr><td>b &gt; 1</td><td>Wachstum (wird größer)</td></tr>
+        <tr><td>b = 1</td><td>bleibt gleich</td></tr>
+        <tr><td>0 &lt; b &lt; 1</td><td>Zerfall (wird kleiner)</td></tr>
+      </table>
+      <p style="margin-bottom:0">Beispiel: b = 2 → Verdopplung pro Schritt. b = 0,5 → Halbierung.</p>
+    </div>
+
+    <h2>3. Prozente in Faktoren umrechnen</h2>
+    <div class="box merken">
+      <span class="label">Wichtig für Sachaufgaben</span>
+      <p><b>+5 % pro Schritt</b> → Faktor b = 1 + 0,05 = <b>1,05</b><br>
+         <b>−20 % pro Schritt</b> → Faktor b = 1 − 0,20 = <b>0,8</b></p>
+      <p style="margin-bottom:0">Beispiel: 100 € mit 5 % Zinsen nach 2 Jahren:
+         100 · 1,05² = 100 · 1,1025 = 110,25 €.</p>
+    </div>
+
+    <!-- ============ ÜBEN ============ -->
+    <h2>✏️ Jetzt üben</h2>
+    <p>Kommazahlen mit Komma oder Punkt – beides geht.</p>
+    <div id="quiz"></div>
+
+    <p class="fuss">Mathe Klasse 10 · Exponentialfunktionen & Wachstum</p>
+  </div>
+
+  <script src="js/quiz.js"></script>
+  <script>
+    const aufgaben = [
+      {
+        typ:"input",
+        frage:"Berechne f(3) für f(x) = 2ˣ.",
+        loesungen:["8"],
+        tipp:"2³ = 2·2·2.",
+        erklaerung:"f(3) = 2³ = 8."
+      },
+      {
+        typ:"input",
+        frage:"Berechne den Startwert f(0) für f(x) = 3 · 2ˣ.",
+        loesungen:["3"],
+        tipp:"2⁰ = 1, also bleibt nur a übrig.",
+        erklaerung:"f(0) = 3 · 2⁰ = 3 · 1 = 3 (der Startwert a)."
+      },
+      {
+        typ:"mc",
+        frage:"Welcher Wachstumsfaktor b gehört zu einem Zerfall (es wird kleiner)?",
+        optionen:["b = 1,5", "b = 2", "b = 0,5", "b = 1"],
+        richtig:2,
+        tipp:"Zerfall heißt 0 < b < 1.",
+        erklaerung:"Nur b = 0,5 liegt zwischen 0 und 1 → Halbierung pro Schritt (Zerfall)."
+      },
+      {
+        typ:"input",
+        frage:"Ein Guthaben wächst pro Jahr um 5 %. Welcher Wachstumsfaktor b gehört dazu?",
+        loesungen:["1.05","1,05"],
+        tipp:"b = 1 + Prozentsatz als Dezimalzahl.",
+        erklaerung:"+5 % → b = 1 + 0,05 = 1,05."
+      },
+      {
+        typ:"input",
+        frage:"Ein Wert fällt pro Schritt um 20 %. Welcher Faktor b gehört dazu?",
+        loesungen:["0.8","0,8"],
+        tipp:"b = 1 − Prozentsatz als Dezimalzahl.",
+        erklaerung:"−20 % → b = 1 − 0,20 = 0,8."
+      },
+      {
+        typ:"input",
+        frage:"Eine Bakterienkultur startet mit 100 und verdoppelt sich pro Stunde. Wie viele sind es nach 3 Stunden?",
+        loesungen:["800"],
+        tipp:"100 · 2³.",
+        erklaerung:"100 · 2³ = 100 · 8 = 800."
+      },
+      {
+        typ:"input",
+        frage:"100 € werden mit 5 % pro Jahr verzinst. Wie viel ist nach 1 Jahr da (in €)?",
+        loesungen:["105"],
+        tipp:"100 · 1,05.",
+        erklaerung:"100 · 1,05 = 105 €."
+      },
+      {
+        typ:"mc",
+        frage:"Was unterscheidet exponentielles von linearem Wachstum?",
+        optionen:[
+          "Beim exponentiellen wird in jedem Schritt das Gleiche addiert",
+          "Beim exponentiellen wird in jedem Schritt mit dem gleichen Faktor multipliziert",
+          "Es gibt keinen Unterschied"
+        ],
+        richtig:1,
+        tipp:"Linear = immer +c. Exponentiell = immer ·b.",
+        erklaerung:"Exponentiell heißt: in jedem Schritt mal den gleichen Faktor (nicht plus den gleichen Wert)."
+      }
+    ];
+    starteQuiz("#quiz", aufgaben);
+  </script>
+</body>
+</html>

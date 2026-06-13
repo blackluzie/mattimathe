@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sinus- & Kosinusfunktion – Klasse 10</title>
+  <meta name="theme-color" content="#0E7490">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar"><a class="back" href="klasse10.html">← Zurück</a></div>
+    <h1>〰️ Sinus- & Kosinusfunktion</h1>
+    <p class="lead">Aus sin und cos werden jetzt richtige Funktionen: Man trägt den Winkel auf der
+       x-Achse ab und erhält eine wellenförmige Kurve, die sich immer wiederholt.</p>
+
+    <!-- ============ WISSEN ============ -->
+    <h2>1. Wichtige Werte</h2>
+    <div class="box merken">
+      <span class="label">Merken</span>
+      <table class="daten">
+        <tr><th>x</th><th>0°</th><th>90°</th><th>180°</th><th>270°</th><th>360°</th></tr>
+        <tr><td>sin(x)</td><td>0</td><td>1</td><td>0</td><td>−1</td><td>0</td></tr>
+        <tr><td>cos(x)</td><td>1</td><td>0</td><td>−1</td><td>0</td><td>1</td></tr>
+      </table>
+      <p style="margin-bottom:0">Beide Kurven schwanken zwischen −1 und +1. Der cos ist der sin,
+         nur um 90° verschoben.</p>
+    </div>
+
+    <h2>2. Periode & Amplitude</h2>
+    <div class="box tipp">
+      <span class="label">Zwei Begriffe</span>
+      <p><b>Periode:</b> Nach 360° wiederholt sich die Kurve komplett. Die Periode von sin und cos
+         ist also <b>360°</b>.</p>
+      <p style="margin-bottom:0"><b>Amplitude:</b> Wie hoch die Welle ausschlägt. Bei
+         y = a · sin(x) ist die Amplitude <b>|a|</b> – die Kurve geht dann von −a bis +a.</p>
+    </div>
+    <div class="box merken">
+      <span class="label">Beispiel</span>
+      <p style="margin:0">y = 3 · sin(x) schwankt zwischen −3 und +3 (Amplitude 3), die Periode
+         bleibt 360°. Der größte Wert (Maximum) ist 3, der kleinste −3.</p>
+    </div>
+
+    <!-- ============ ÜBEN ============ -->
+    <h2>✏️ Jetzt üben</h2>
+    <p>Winkel in Grad, Funktionswerte als ganze Zahl oder Dezimalzahl.</p>
+    <div id="quiz"></div>
+
+    <p class="fuss">Mathe Klasse 10 · Sinus- & Kosinusfunktion</p>
+  </div>
+
+  <script src="js/quiz.js"></script>
+  <script>
+    const aufgaben = [
+      {
+        typ:"input",
+        frage:"Welchen Wert hat sin(0°)?",
+        loesungen:["0"],
+        tipp:"Schau in die Wertetabelle.",
+        erklaerung:"sin(0°) = 0."
+      },
+      {
+        typ:"input",
+        frage:"Welchen Wert hat sin(90°)?",
+        loesungen:["1"],
+        tipp:"Bei 90° ist der Sinus am größten.",
+        erklaerung:"sin(90°) = 1 (das Maximum)."
+      },
+      {
+        typ:"input",
+        frage:"Welchen Wert hat cos(0°)?",
+        loesungen:["1"],
+        tipp:"Der Kosinus startet oben.",
+        erklaerung:"cos(0°) = 1."
+      },
+      {
+        typ:"input",
+        frage:"Welchen Wert hat cos(90°)?",
+        loesungen:["0"],
+        tipp:"Bei 90° kreuzt der Kosinus die x-Achse.",
+        erklaerung:"cos(90°) = 0."
+      },
+      {
+        typ:"input",
+        frage:"Wie groß ist die Periode der Sinusfunktion (in Grad)?",
+        loesungen:["360","360°"],
+        tipp:"Nach wie vielen Grad wiederholt sich die Welle komplett?",
+        erklaerung:"Die Periode ist 360°."
+      },
+      {
+        typ:"input",
+        frage:"Welche Amplitude hat y = 3 · sin(x)?",
+        loesungen:["3"],
+        tipp:"Die Amplitude ist die Zahl vor dem sin.",
+        erklaerung:"Die Amplitude ist 3 – die Kurve schwankt zwischen −3 und +3."
+      },
+      {
+        typ:"input",
+        frage:"Welchen größten Wert (Maximum) erreicht y = 2 · sin(x)?",
+        loesungen:["2"],
+        tipp:"Maximum = Amplitude.",
+        erklaerung:"sin wird höchstens 1, also 2 · 1 = 2."
+      },
+      {
+        typ:"mc",
+        frage:"Zwischen welchen Werten schwankt y = sin(x) immer?",
+        optionen:["zwischen 0 und 1", "zwischen −1 und 1", "zwischen −360 und 360"],
+        richtig:1,
+        tipp:"Schau auf die größten und kleinsten Tabellenwerte.",
+        erklaerung:"sin(x) liegt immer zwischen −1 und +1."
+      }
+    ];
+    starteQuiz("#quiz", aufgaben);
+  </script>
+</body>
+</html>

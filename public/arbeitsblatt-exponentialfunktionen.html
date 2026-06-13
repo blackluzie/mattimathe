@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arbeitsblatt – Exponentialfunktionen & Wachstum</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .aufg-nr { font-weight:800; color:var(--blau); }
+    .ab-aufgabe { margin:18px 0; padding-bottom:14px; border-bottom:1px dashed var(--line); }
+    .rechenfeld { border:2px dashed var(--line); border-radius:10px; min-height:70px; margin-top:8px; }
+    @media print {
+      .noprint { display:none !important; }
+      body { background:#fff; font-size:12pt; }
+      .wrap { max-width:100%; padding:0; }
+      .box, .ab-aufgabe { box-shadow:none; }
+      details.loesung { page-break-before: always; }
+      a[href]:after { content:""; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar noprint">
+      <a class="back" href="klasse10.html">← Zurück</a>
+      <button class="btn" onclick="window.print()">🖨️ Drucken / als PDF speichern</button>
+    </div>
+
+    <h1>🚀 Arbeitsblatt: Exponentialfunktionen & Wachstum</h1>
+    <p class="lead">Name: _______________________  &nbsp;&nbsp; Datum: ____________</p>
+
+    <div class="box merken noprint">
+      <span class="label">Spickzettel</span>
+      <p style="margin:0">f(x) = a · bˣ &nbsp;·&nbsp; a = Startwert &nbsp;·&nbsp; b > 1 Wachstum, 0 < b < 1 Zerfall
+         &nbsp;·&nbsp; +p % → b = 1 + p/100 &nbsp;·&nbsp; −p % → b = 1 − p/100</p>
+    </div>
+
+    <div class="ab-aufgabe">
+      <p><span class="aufg-nr">1.</span> f(x) = 2ˣ: a) f(4) = ______  b) f(0) = ______</p>
+      <div class="rechenfeld"></div>
+    </div>
+
+    <div class="ab-aufgabe">
+      <p><span class="aufg-nr">2.</span> Startwert von f(x) = 5 · 3ˣ, also f(0) = ______</p>
+      <div class="rechenfeld"></div>
+    </div>
+
+    <div class="ab-aufgabe">
+      <p><span class="aufg-nr">3.</span> Wachstumsfaktor b bestimmen: a) +10 % ______  b) −25 % ______</p>
+      <div class="rechenfeld"></div>
+    </div>
+
+    <div class="ab-aufgabe">
+      <p><span class="aufg-nr">4.</span> Eine Kultur startet mit 200 und verdoppelt sich pro Stunde.
+         Wie viele sind es nach 4 Stunden? ______</p>
+      <div class="rechenfeld"></div>
+    </div>
+
+    <div class="ab-aufgabe">
+      <p><span class="aufg-nr">5.</span> 1000 € werden mit 3 % pro Jahr verzinst. Wie viel ist nach
+         1 Jahr da? ______</p>
+      <div class="rechenfeld"></div>
+    </div>
+
+    <div class="ab-aufgabe">
+      <p><span class="aufg-nr">6.</span> ⭐ Welcher Faktor b bedeutet Zerfall? 1,2 &nbsp; 0,9 &nbsp; 1,0 → ______</p>
+      <div class="rechenfeld"></div>
+    </div>
+
+    <details class="loesung noprint">
+      <summary>✅ Lösungen anzeigen</summary>
+      <p><b>1.</b> a) 2⁴ = 16 &nbsp; b) 2⁰ = 1</p>
+      <p><b>2.</b> 5 · 3⁰ = 5</p>
+      <p><b>3.</b> a) b = 1,1 &nbsp; b) b = 0,75</p>
+      <p><b>4.</b> 200 · 2⁴ = 200 · 16 = 3200</p>
+      <p><b>5.</b> 1000 · 1,03 = 1030 €</p>
+      <p><b>6.</b> 0,9 (zwischen 0 und 1 → Zerfall)</p>
+    </details>
+
+    <p class="fuss">Mathe Klasse 10 · Exponentialfunktionen & Wachstum · Arbeitsblatt</p>
+  </div>
+</body>
+</html>

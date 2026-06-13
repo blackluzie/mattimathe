@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arbeitsblatt – Logarithmen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .aufg-nr { font-weight:800; color:var(--blau); }
+    .ab-aufgabe { margin:18px 0; padding-bottom:14px; border-bottom:1px dashed var(--line); }
+    .rechenfeld { border:2px dashed var(--line); border-radius:10px; min-height:70px; margin-top:8px; }
+    @media print {
+      .noprint { display:none !important; }
+      body { background:#fff; font-size:12pt; }
+      .wrap { max-width:100%; padding:0; }
+      .box, .ab-aufgabe { box-shadow:none; }
+      details.loesung { page-break-before: always; }
+      a[href]:after { content:""; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar noprint">
+      <a class="back" href="klasse10.html">← Zurück</a>
+      <button class="btn" onclick="window.print()">🖨️ Drucken / als PDF speichern</button>
+    </div>
+
+    <h1>🔁 Arbeitsblatt: Logarithmen</h1>
+    <p class="lead">Name: _______________________  &nbsp;&nbsp; Datum: ____________</p>
+
+    <div class="box merken noprint">
+      <span class="label">Spickzettel</span>
+      <p style="margin:0">log<sub>b</sub>(x) = e bedeutet bᵉ = x &nbsp;·&nbsp;
+         log<sub>b</sub>(1) = 0 &nbsp;·&nbsp; log<sub>b</sub>(b) = 1</p>
+    </div>
+
+    <div class="ab-aufgabe">
+      <p><span class="aufg-nr">1.</span> Berechne: a) log₂(8) ______  b) log₂(32) ______  c) log₂(64) ______</p>
+      <div class="rechenfeld"></div>
+    </div>
+
+    <div class="ab-aufgabe">
+      <p><span class="aufg-nr">2.</span> Berechne: a) log₁₀(100) ______  b) log₁₀(10 000) ______</p>
+      <div class="rechenfeld"></div>
+    </div>
+
+    <div class="ab-aufgabe">
+      <p><span class="aufg-nr">3.</span> Berechne: a) log₃(27) ______  b) log₅(25) ______</p>
+      <div class="rechenfeld"></div>
+    </div>
+
+    <div class="ab-aufgabe">
+      <p><span class="aufg-nr">4.</span> Löse die Gleichung: a) 2ˣ = 16 → x = ______  b) 10ˣ = 1000 → x = ______</p>
+      <div class="rechenfeld"></div>
+    </div>
+
+    <div class="ab-aufgabe">
+      <p><span class="aufg-nr">5.</span> ⭐ Berechne: a) log₂(1) ______  b) log₇(7) ______</p>
+      <div class="rechenfeld"></div>
+    </div>
+
+    <details class="loesung noprint">
+      <summary>✅ Lösungen anzeigen</summary>
+      <p><b>1.</b> a) 3 (2³=8) &nbsp; b) 5 (2⁵=32) &nbsp; c) 6 (2⁶=64)</p>
+      <p><b>2.</b> a) 2 (10²=100) &nbsp; b) 4 (10⁴=10 000)</p>
+      <p><b>3.</b> a) 3 (3³=27) &nbsp; b) 2 (5²=25)</p>
+      <p><b>4.</b> a) x = 4 &nbsp; b) x = 3</p>
+      <p><b>5.</b> a) 0 (b⁰=1) &nbsp; b) 1 (b¹=b)</p>
+    </details>
+
+    <p class="fuss">Mathe Klasse 10 · Logarithmen · Arbeitsblatt</p>
+  </div>
+</body>
+</html>

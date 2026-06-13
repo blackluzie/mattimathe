@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Potenzen & Potenzgesetze – Klasse 9</title>
+  <meta name="theme-color" content="#0E7490">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar"><a class="back" href="klasse9.html">← Zurück</a></div>
+    <h1>🔢 Potenzen & Potenzgesetze</h1>
+    <p class="lead">Potenzen sind eine Kurzschrift fürs mehrfache Malnehmen. Mit den
+       Potenzgesetzen rechnest du mit ihnen geschickt – auch mit ganz großen und ganz
+       kleinen Zahlen.</p>
+
+    <!-- ============ WISSEN ============ -->
+    <h2>1. Was ist eine Potenz?</h2>
+    <div class="box merken">
+      <span class="label">Merken</span>
+      <div class="formel">a<sup>n</sup> = a · a · a · … · a &nbsp;(n-mal)</div>
+      <p style="margin-bottom:0"><b>a</b> heißt Basis, <b>n</b> heißt Exponent (Hochzahl).
+         Beispiel: 2⁵ = 2 · 2 · 2 · 2 · 2 = 32.</p>
+    </div>
+
+    <h2>2. Die Potenzgesetze</h2>
+    <div class="box merken">
+      <span class="label">Die wichtigsten Regeln</span>
+      <table class="daten">
+        <tr><th>Regel</th><th>Beispiel</th></tr>
+        <tr><td>aᵐ · aⁿ = a<sup>m+n</sup></td><td>2³ · 2⁴ = 2⁷</td></tr>
+        <tr><td>aᵐ ÷ aⁿ = a<sup>m−n</sup></td><td>a⁷ ÷ a³ = a⁴</td></tr>
+        <tr><td>(aᵐ)ⁿ = a<sup>m·n</sup></td><td>(x²)³ = x⁶</td></tr>
+        <tr><td>(a · b)ⁿ = aⁿ · bⁿ</td><td>(2·3)² = 2²·3² = 36</td></tr>
+        <tr><td>a⁰ = 1</td><td>7⁰ = 1</td></tr>
+        <tr><td>a<sup>−n</sup> = 1 ÷ aⁿ</td><td>2⁻³ = 1/8</td></tr>
+      </table>
+      <p style="margin-bottom:0"><b>Gleiche Basis bei Mal/Geteilt:</b> Exponenten addieren bzw.
+         subtrahieren. <b>Potenz einer Potenz:</b> Exponenten multiplizieren.</p>
+    </div>
+    <div class="box achtung">
+      <span class="label">Vorsicht</span>
+      <p style="margin:0">Die Potenzgesetze für Mal/Geteilt gelten nur bei <u>gleicher Basis</u>.
+         2³ · 5² kann man <b>nicht</b> einfach zusammenfassen.</p>
+    </div>
+
+    <h2>3. Zehnerpotenzen & wissenschaftliche Schreibweise</h2>
+    <div class="box tipp">
+      <span class="label">Große und kleine Zahlen</span>
+      <p>Mit Zehnerpotenzen schreibt man riesige oder winzige Zahlen kurz:</p>
+      <div class="formel">3 000 = 3 · 10³ &nbsp;·&nbsp; 0,002 = 2 · 10⁻³</div>
+      <p style="margin-bottom:0">Regel: 10ⁿ verschiebt das Komma um n Stellen nach rechts,
+         10⁻ⁿ um n Stellen nach links. In der <b>wissenschaftlichen Schreibweise</b> steht vor
+         dem ·10 immer eine Zahl zwischen 1 und 10.</p>
+    </div>
+
+    <!-- ============ ÜBEN ============ -->
+    <h2>✏️ Jetzt üben</h2>
+    <p>Gib bei „Exponent gesucht“ nur die Hochzahl ein (z. B. <code>7</code>).</p>
+    <div id="quiz"></div>
+
+    <p class="fuss">Mathe Klasse 9 · Potenzen & Potenzgesetze</p>
+  </div>
+
+  <script src="js/quiz.js"></script>
+  <script>
+    const aufgaben = [
+      {
+        typ:"input",
+        frage:"Berechne 2⁵.",
+        loesungen:["32"],
+        tipp:"2·2·2·2·2.",
+        erklaerung:"2⁵ = 32."
+      },
+      {
+        typ:"input",
+        frage:"2³ · 2⁴ = 2 hoch wieviel? Gib nur den Exponenten ein.",
+        loesungen:["7"],
+        tipp:"Gleiche Basis, Mal → Exponenten addieren.",
+        erklaerung:"3 + 4 = 7, also 2³ · 2⁴ = 2⁷."
+      },
+      {
+        typ:"input",
+        frage:"a⁷ ÷ a³ = a hoch wieviel? Gib nur den Exponenten ein.",
+        loesungen:["4"],
+        tipp:"Gleiche Basis, Geteilt → Exponenten subtrahieren.",
+        erklaerung:"7 − 3 = 4, also a⁷ ÷ a³ = a⁴."
+      },
+      {
+        typ:"input",
+        frage:"(x²)³ = x hoch wieviel? Gib nur den Exponenten ein.",
+        loesungen:["6"],
+        tipp:"Potenz einer Potenz → Exponenten multiplizieren.",
+        erklaerung:"2 · 3 = 6, also (x²)³ = x⁶."
+      },
+      {
+        typ:"input",
+        frage:"Berechne 5⁰.",
+        loesungen:["1"],
+        tipp:"Jede Zahl hoch 0 ergibt …?",
+        erklaerung:"a⁰ = 1, also 5⁰ = 1."
+      },
+      {
+        typ:"input",
+        frage:"2⁻³ = 1 geteilt durch welche Zahl? Gib die Zahl im Nenner ein.",
+        loesungen:["8"],
+        tipp:"a⁻ⁿ = 1/aⁿ. Also 1/2³.",
+        erklaerung:"2⁻³ = 1/2³ = 1/8, also steht 8 im Nenner."
+      },
+      {
+        typ:"mc",
+        frage:"Berechne (2 · 3)².",
+        optionen:["12", "36", "18", "6"],
+        richtig:1,
+        tipp:"(a·b)² = a²·b² = 4·9.",
+        erklaerung:"(2·3)² = 6² = 36 (oder 2²·3² = 4·9 = 36)."
+      },
+      {
+        typ:"input",
+        frage:"Schreibe 3 000 als 3 · 10 hoch n. Welcher Exponent n ist das?",
+        loesungen:["3"],
+        tipp:"Wie viele Nullen hängen an der 3?",
+        erklaerung:"3 000 = 3 · 1000 = 3 · 10³, also n = 3."
+      },
+      {
+        typ:"input",
+        frage:"Schreibe 0,002 als 2 · 10 hoch n. Welcher Exponent n ist das? (mit Vorzeichen)",
+        loesungen:["-3","−3"],
+        tipp:"Bei kleinen Zahlen ist der Exponent negativ.",
+        erklaerung:"0,002 = 2 · 0,001 = 2 · 10⁻³, also n = −3."
+      },
+      {
+        typ:"input",
+        frage:"Wie viel ist 10⁶ als ausgeschriebene Zahl?",
+        loesungen:["1000000","1.000.000"],
+        tipp:"10⁶ = eine 1 mit 6 Nullen.",
+        erklaerung:"10⁶ = 1 000 000 (eine Million)."
+      },
+      {
+        typ:"mc",
+        frage:"Welcher Ausdruck lässt sich mit der Regel aᵐ · aⁿ = a<sup>m+n</sup> zusammenfassen?",
+        optionen:["2³ · 5²", "3⁴ · 3²", "x² + x³", "4 · 5²"],
+        richtig:1,
+        tipp:"Diese Regel braucht zweimal die GLEICHE Basis, verbunden mit Mal.",
+        erklaerung:"Nur 3⁴ · 3² hat dieselbe Basis 3 → 3⁶. 2³·5² haben verschiedene Basen, und x²+x³ ist eine Summe (da gilt die Regel nicht)."
+      }
+    ];
+    starteQuiz("#quiz", aufgaben);
+  </script>
+</body>
+</html>

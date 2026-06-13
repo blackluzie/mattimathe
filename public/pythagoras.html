@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Satz des Pythagoras – Klasse 9</title>
+  <meta name="theme-color" content="#0E7490">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar"><a class="back" href="klasse9.html">← Zurück</a></div>
+    <h1>📐 Satz des Pythagoras</h1>
+    <p class="lead">Im rechtwinkligen Dreieck hängen die drei Seiten mit einer einzigen Formel
+       zusammen. Damit kannst du fehlende Längen berechnen – sehr oft in Sachaufgaben.</p>
+
+    <!-- ============ WISSEN ============ -->
+    <h2>1. Die Formel</h2>
+    <div class="box merken">
+      <span class="label">Merken</span>
+      <div class="formel">a² + b² = c²</div>
+      <p><b>a</b> und <b>b</b> sind die <b>Katheten</b> (die beiden Seiten am rechten Winkel),
+         <b>c</b> ist die <b>Hypotenuse</b> – die längste Seite, die dem rechten Winkel
+         <u>gegenüber</u> liegt.</p>
+      <svg class="figur" viewBox="0 0 220 150" width="240" role="img" aria-label="rechtwinkliges Dreieck">
+        <polygon points="30,120 190,120 30,30" fill="#E2F2F6" stroke="#0E7490" stroke-width="3"/>
+        <rect x="30" y="105" width="15" height="15" fill="none" stroke="#0E7490" stroke-width="2"/>
+        <text x="105" y="138" font-size="14" fill="#2A2E35">a (Kathete)</text>
+        <text x="2" y="78" font-size="14" fill="#2A2E35">b</text>
+        <text x="118" y="68" font-size="14" fill="#2A2E35">c (Hypotenuse)</text>
+      </svg>
+    </div>
+
+    <h2>2. Hypotenuse berechnen</h2>
+    <div class="box tipp">
+      <span class="label">Beispiel</span>
+      <p>Katheten a = 3 cm und b = 4 cm. Gesucht ist c:</p>
+      <div class="formel">c² = a² + b² = 3² + 4² = 9 + 16 = 25 &nbsp;→&nbsp; c = √25 = 5 cm</div>
+      <p style="margin-bottom:0">Die Kombination 3-4-5 (und ihre Vielfachen 6-8-10, 9-12-15 …) lohnt sich zu merken.</p>
+    </div>
+
+    <h2>3. Kathete berechnen</h2>
+    <div class="box tipp">
+      <span class="label">Umstellen</span>
+      <p>Ist die Hypotenuse bekannt und eine Kathete gesucht, stellst du um:</p>
+      <div class="formel">a² = c² − b²</div>
+      <p style="margin-bottom:0">Beispiel: c = 13 cm, b = 5 cm → a² = 169 − 25 = 144 → a = 12 cm.</p>
+    </div>
+    <div class="box achtung">
+      <span class="label">Vorsicht</span>
+      <p style="margin:0">Beim Suchen einer Kathete wird <b>subtrahiert</b> (c² − b²), beim Suchen der
+         Hypotenuse <b>addiert</b> (a² + b²). Prüfe immer zuerst: Welche Seite ist die längste?</p>
+    </div>
+
+    <!-- ============ ÜBEN ============ -->
+    <h2>✏️ Jetzt üben</h2>
+    <p>Rechne ohne Einheit – gib einfach die Zahl ein. Runde, falls nötig, auf zwei Stellen.</p>
+    <div id="quiz"></div>
+
+    <p class="fuss">Mathe Klasse 9 · Satz des Pythagoras</p>
+  </div>
+
+  <script src="js/quiz.js"></script>
+  <script>
+    const aufgaben = [
+      {
+        typ:"mc",
+        frage:"Welche Seite ist die Hypotenuse?",
+        optionen:[
+          "Die kürzeste Seite",
+          "Eine der beiden Seiten am rechten Winkel",
+          "Die längste Seite, gegenüber dem rechten Winkel",
+          "Die Höhe des Dreiecks"
+        ],
+        richtig:2,
+        tipp:"Sie liegt dem 90°-Winkel gegenüber.",
+        erklaerung:"Die Hypotenuse ist die längste Seite und liegt dem rechten Winkel gegenüber."
+      },
+      {
+        typ:"input",
+        frage:"Katheten a = 3 und b = 4. Wie lang ist die Hypotenuse c?",
+        loesungen:["5"],
+        tipp:"c² = 3² + 4² = 9 + 16.",
+        erklaerung:"c² = 25 → c = 5."
+      },
+      {
+        typ:"input",
+        frage:"Katheten a = 6 und b = 8. Wie lang ist c?",
+        loesungen:["10"],
+        tipp:"c² = 36 + 64.",
+        erklaerung:"c² = 100 → c = 10."
+      },
+      {
+        typ:"input",
+        frage:"Hypotenuse c = 13, Kathete b = 5. Wie lang ist die andere Kathete a?",
+        loesungen:["12"],
+        tipp:"a² = c² − b² = 169 − 25.",
+        erklaerung:"a² = 144 → a = 12."
+      },
+      {
+        typ:"input",
+        frage:"Katheten a = 5 und b = 12. Wie lang ist c?",
+        loesungen:["13"],
+        tipp:"c² = 25 + 144.",
+        erklaerung:"c² = 169 → c = 13."
+      },
+      {
+        typ:"mc",
+        frage:"Ist ein Dreieck mit den Seiten 5, 6 und 8 rechtwinklig?",
+        optionen:["Ja", "Nein", "Das kann man nicht prüfen"],
+        richtig:1,
+        tipp:"Prüfe, ob a² + b² = c² mit der längsten Seite als c gilt.",
+        erklaerung:"5² + 6² = 25 + 36 = 61, aber 8² = 64. 61 ≠ 64 → nicht rechtwinklig."
+      },
+      {
+        typ:"input",
+        frage:"Eine Leiter steht 3 m von der Wand entfernt und reicht 4 m hoch. Wie lang ist die Leiter?",
+        loesungen:["5"],
+        tipp:"Wand und Boden bilden den rechten Winkel; die Leiter ist die Hypotenuse.",
+        erklaerung:"Leiter² = 3² + 4² = 25 → Leiter = 5 m."
+      },
+      {
+        typ:"input",
+        frage:"Hypotenuse c = 10, Kathete a = 6. Wie lang ist Kathete b?",
+        loesungen:["8"],
+        tipp:"b² = c² − a² = 100 − 36.",
+        erklaerung:"b² = 64 → b = 8."
+      },
+      {
+        typ:"input",
+        frage:"Wie lang ist die Diagonale eines Quadrats mit der Seite a = 1? Runde auf zwei Stellen.",
+        loesungen:["1.41","1,41","1.414"],
+        tipp:"Die Diagonale teilt das Quadrat in zwei rechtwinklige Dreiecke: d² = 1² + 1².",
+        erklaerung:"d² = 2 → d = √2 ≈ 1,41."
+      }
+    ];
+    starteQuiz("#quiz", aufgaben);
+  </script>
+</body>
+</html>

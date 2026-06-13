@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arbeitsblatt – Potenz- & ganzrationale Funktionen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .aufg-nr { font-weight:800; color:var(--blau); }
+    .ab-aufgabe { margin:18px 0; padding-bottom:14px; border-bottom:1px dashed var(--line); }
+    .rechenfeld { border:2px dashed var(--line); border-radius:10px; min-height:70px; margin-top:8px; }
+    @media print {
+      .noprint { display:none !important; }
+      body { background:#fff; font-size:12pt; }
+      .wrap { max-width:100%; padding:0; }
+      .box, .ab-aufgabe { box-shadow:none; }
+      details.loesung { page-break-before: always; }
+      a[href]:after { content:""; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar noprint">
+      <a class="back" href="klasse10.html">← Zurück</a>
+      <button class="btn" onclick="window.print()">🖨️ Drucken / als PDF speichern</button>
+    </div>
+
+    <h1>🧮 Arbeitsblatt: Potenz- & ganzrationale Funktionen</h1>
+    <p class="lead">Name: _______________________  &nbsp;&nbsp; Datum: ____________</p>
+
+    <div class="box merken noprint">
+      <span class="label">Spickzettel</span>
+      <p style="margin:0">gerader Exponent → achsensymmetrisch (y-Achse) &nbsp;·&nbsp;
+         ungerader Exponent → punktsymmetrisch (Ursprung) &nbsp;·&nbsp; Grad = höchster Exponent</p>
+    </div>
+
+    <div class="ab-aufgabe">
+      <p><span class="aufg-nr">1.</span> f(x) = x²: a) f(4) = ______  b) f(−2) = ______</p>
+      <div class="rechenfeld"></div>
+    </div>
+
+    <div class="ab-aufgabe">
+      <p><span class="aufg-nr">2.</span> f(x) = x³: a) f(2) = ______  b) f(−2) = ______</p>
+      <div class="rechenfeld"></div>
+    </div>
+
+    <div class="ab-aufgabe">
+      <p><span class="aufg-nr">3.</span> Gib die Symmetrie an: a) x⁴ ______  b) x³ ______  c) x⁶ ______</p>
+      <div class="rechenfeld"></div>
+    </div>
+
+    <div class="ab-aufgabe">
+      <p><span class="aufg-nr">4.</span> Bestimme den Grad: a) 2x³ + x ______  b) 5x⁴ − x² + 7 ______</p>
+      <div class="rechenfeld"></div>
+    </div>
+
+    <div class="ab-aufgabe">
+      <p><span class="aufg-nr">5.</span> ⭐ Welche dieser Funktionen sind punktsymmetrisch zum Ursprung?
+         x², x³, x⁴, x⁵ → ______</p>
+      <div class="rechenfeld"></div>
+    </div>
+
+    <details class="loesung noprint">
+      <summary>✅ Lösungen anzeigen</summary>
+      <p><b>1.</b> a) 16 &nbsp; b) 4 (denn (−2)² = 4)</p>
+      <p><b>2.</b> a) 8 &nbsp; b) −8 (denn (−2)³ = −8)</p>
+      <p><b>3.</b> a) achsensymmetrisch &nbsp; b) punktsymmetrisch &nbsp; c) achsensymmetrisch</p>
+      <p><b>4.</b> a) Grad 3 &nbsp; b) Grad 4</p>
+      <p><b>5.</b> x³ und x⁵ (ungerade Exponenten)</p>
+    </details>
+
+    <p class="fuss">Mathe Klasse 10 · Potenz- & ganzrationale Funktionen · Arbeitsblatt</p>
+  </div>
+</body>
+</html>
