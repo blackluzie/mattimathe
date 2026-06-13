@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sinus- & Kosinussatz – Klasse 10</title>
+  <meta name="theme-color" content="#0E7490">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar"><a class="back" href="klasse10.html">← Zurück</a></div>
+    <h1>🧭 Sinus- & Kosinussatz</h1>
+    <p class="lead">Pythagoras und sin/cos/tan brauchen einen rechten Winkel. Mit dem Sinus- und
+       dem Kosinussatz rechnest du in <b>jedem</b> Dreieck – auch wenn kein 90°-Winkel vorkommt.</p>
+
+    <!-- ============ WISSEN ============ -->
+    <h2>1. Der Kosinussatz</h2>
+    <div class="box merken">
+      <span class="label">Merken</span>
+      <div class="formel">c² = a² + b² − 2 · a · b · cos(γ)</div>
+      <p style="margin-bottom:0">γ ist der Winkel, der der Seite c <u>gegenüber</u> liegt.
+         Du brauchst zwei Seiten und den eingeschlossenen Winkel.</p>
+    </div>
+    <div class="box tipp">
+      <span class="label">Schöner Zusammenhang</span>
+      <p style="margin:0">Ist γ = 90°, dann ist cos(90°) = 0 und der ganze hintere Teil fällt weg:
+         c² = a² + b². Der <b>Satz des Pythagoras ist also ein Spezialfall</b> des Kosinussatzes!</p>
+    </div>
+
+    <h2>2. Der Sinussatz</h2>
+    <div class="box merken">
+      <span class="label">Merken</span>
+      <div class="formel">
+        <span class="bruch"><span class="z">a</span><span class="n">sin α</span></span> =
+        <span class="bruch"><span class="z">b</span><span class="n">sin β</span></span> =
+        <span class="bruch"><span class="z">c</span><span class="n">sin γ</span></span>
+      </div>
+      <p style="margin-bottom:0">Jede Seite und der ihr gegenüberliegende Winkel gehören zusammen.
+         Praktisch, wenn du eine Seite mit „ihrem“ Winkel kennst und eine zweite suchst.</p>
+    </div>
+    <div class="box tipp">
+      <span class="label">Welchen Satz wann?</span>
+      <p style="margin:0"><b>Kosinussatz:</b> zwei Seiten + eingeschlossener Winkel (oder drei Seiten).
+         <b>Sinussatz:</b> wenn eine Seite und ihr gegenüberliegender Winkel bekannt sind.</p>
+    </div>
+
+    <!-- ============ ÜBEN ============ -->
+    <h2>✏️ Jetzt üben</h2>
+    <p>Bei „c²“ reicht der Wert des Quadrats – du musst nicht die Wurzel ziehen.</p>
+    <div id="quiz"></div>
+
+    <p class="fuss">Mathe Klasse 10 · Sinus- & Kosinussatz</p>
+  </div>
+
+  <script src="js/quiz.js"></script>
+  <script>
+    const aufgaben = [
+      {
+        typ:"mc",
+        frage:"Für welche Dreiecke gelten Sinus- und Kosinussatz?",
+        optionen:[
+          "Nur für rechtwinklige Dreiecke",
+          "Für beliebige Dreiecke",
+          "Nur für gleichseitige Dreiecke"
+        ],
+        richtig:1,
+        tipp:"Genau dafür wurden sie gemacht.",
+        erklaerung:"Beide Sätze gelten in jedem Dreieck – man braucht keinen rechten Winkel."
+      },
+      {
+        typ:"mc",
+        frage:"Was wird aus dem Kosinussatz c² = a² + b² − 2ab·cos(γ), wenn γ = 90° ist?",
+        optionen:[
+          "c² = a² + b² (Satz des Pythagoras)",
+          "c² = 2ab",
+          "c = a + b"
+        ],
+        richtig:0,
+        tipp:"cos(90°) = 0.",
+        erklaerung:"Wegen cos(90°) = 0 fällt der hintere Teil weg: c² = a² + b² – das ist Pythagoras."
+      },
+      {
+        typ:"input",
+        frage:"Kosinussatz mit a = 4, b = 5, γ = 60° (cos 60° = 0,5). Berechne c².",
+        loesungen:["21"],
+        tipp:"c² = 16 + 25 − 2·4·5·0,5.",
+        erklaerung:"c² = 16 + 25 − 20 = 21."
+      },
+      {
+        typ:"input",
+        frage:"Kosinussatz mit a = 2, b = 3, γ = 60° (cos 60° = 0,5). Berechne c².",
+        loesungen:["7"],
+        tipp:"c² = 4 + 9 − 2·2·3·0,5.",
+        erklaerung:"c² = 4 + 9 − 6 = 7."
+      },
+      {
+        typ:"input",
+        frage:"Sinussatz: a = 5, α = 30°, β = 90° (sin 30° = 0,5, sin 90° = 1). Berechne b.",
+        loesungen:["10"],
+        tipp:"a/sin α = b/sin β → b = a · sin β / sin α = 5 · 1 / 0,5.",
+        erklaerung:"b = 5 · 1 / 0,5 = 10."
+      },
+      {
+        typ:"mc",
+        frage:"Du kennst zwei Seiten und den Winkel dazwischen. Welcher Satz hilft?",
+        optionen:["Sinussatz", "Kosinussatz", "Strahlensatz"],
+        richtig:1,
+        tipp:"„Eingeschlossener Winkel“ ist das Stichwort.",
+        erklaerung:"Zwei Seiten + eingeschlossener Winkel → Kosinussatz."
+      },
+      {
+        typ:"input",
+        frage:"Kosinussatz mit a = 7, b = 1, γ = 60° (cos 60° = 0,5). Berechne c².",
+        loesungen:["43"],
+        tipp:"c² = 49 + 1 − 2·7·1·0,5.",
+        erklaerung:"c² = 49 + 1 − 7 = 43."
+      }
+    ];
+    starteQuiz("#quiz", aufgaben);
+  </script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Arbeitsblatt – Potenzen & Potenzgesetze</title>
+  <title>Arbeitsblatt – Bedingte Wahrscheinlichkeit</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
@@ -24,58 +24,59 @@
 <body>
   <div class="wrap">
     <div class="topbar noprint">
-      <a class="back" href="klasse9.html">← Zurück</a>
+      <a class="back" href="klasse10.html">← Zurück</a>
       <button class="btn" onclick="window.print()">🖨️ Drucken / als PDF speichern</button>
     </div>
 
-    <h1>🔢 Arbeitsblatt: Potenzen & Potenzgesetze</h1>
+    <h1>🎯 Arbeitsblatt: Bedingte Wahrscheinlichkeit</h1>
     <p class="lead">Name: _______________________  &nbsp;&nbsp; Datum: ____________</p>
 
-    <div class="box merken noprint">
-      <span class="label">Spickzettel</span>
-      <p style="margin:0">aᵐ·aⁿ = a<sup>m+n</sup> &nbsp;·&nbsp; aᵐ÷aⁿ = a<sup>m−n</sup> &nbsp;·&nbsp;
-         (aᵐ)ⁿ = a<sup>m·n</sup> &nbsp;·&nbsp; a⁰ = 1 &nbsp;·&nbsp; a⁻ⁿ = 1/aⁿ</p>
+    <div class="box merken">
+      <span class="label">Vierfeldertafel – 200 Schüler</span>
+      <table class="daten">
+        <tr><th></th><th>Bus (B)</th><th>Fahrrad (F)</th><th>Summe</th></tr>
+        <tr><th>Jungen (J)</th><td>60</td><td>40</td><td>100</td></tr>
+        <tr><th>Mädchen (M)</th><td>80</td><td>20</td><td>100</td></tr>
+        <tr><th>Summe</th><td>140</td><td>60</td><td>200</td></tr>
+      </table>
+      <p style="margin:0">Formel: P(A | B) = P(A und B) ÷ P(B)</p>
     </div>
 
     <div class="ab-aufgabe">
-      <p><span class="aufg-nr">1.</span> Schreibe als <u>eine</u> Potenz:</p>
-      <p>a) 2³ · 2² = ______  b) 10⁴ · 10² = ______  c) a⁵ · a = ______</p>
+      <p><span class="aufg-nr">1.</span> P(Junge) = ______</p>
       <div class="rechenfeld"></div>
     </div>
 
     <div class="ab-aufgabe">
-      <p><span class="aufg-nr">2.</span> Vereinfache:</p>
-      <p>a) (x³)² = ______  b) (2²)³ = ______ (auch als Zahl)</p>
+      <p><span class="aufg-nr">2.</span> P(Bus) = ______</p>
       <div class="rechenfeld"></div>
     </div>
 
     <div class="ab-aufgabe">
-      <p><span class="aufg-nr">3.</span> Berechne als Bruch oder Zahl:</p>
-      <p>a) 5⁰ = ______  b) 3⁻² = ______  c) 2⁻¹ = ______</p>
+      <p><span class="aufg-nr">3.</span> P(Junge und Bus) = ______</p>
       <div class="rechenfeld"></div>
     </div>
 
     <div class="ab-aufgabe">
-      <p><span class="aufg-nr">4.</span> Schreibe in wissenschaftlicher Schreibweise (a · 10ⁿ):</p>
-      <p>a) 45 000 = ______  b) 0,003 = ______</p>
+      <p><span class="aufg-nr">4.</span> P(Bus | Junge) = ______ (von den Jungen – wie viele fahren Bus?)</p>
       <div class="rechenfeld"></div>
     </div>
 
     <div class="ab-aufgabe">
-      <p><span class="aufg-nr">5.</span> ⭐ Vereinfache: 6² · 6³ ÷ 6⁴ = ______</p>
+      <p><span class="aufg-nr">5.</span> ⭐ P(Junge | Bus) = ______ (von den Busfahrern – wie viele sind Jungen?)</p>
       <div class="rechenfeld"></div>
     </div>
 
     <details class="loesung noprint">
       <summary>✅ Lösungen anzeigen</summary>
-      <p><b>1.</b> a) 2⁵ (= 32) &nbsp; b) 10⁶ &nbsp; c) a⁶</p>
-      <p><b>2.</b> a) x⁶ &nbsp; b) 2⁶ = 64</p>
-      <p><b>3.</b> a) 1 &nbsp; b) 1/9 &nbsp; c) 1/2</p>
-      <p><b>4.</b> a) 4,5 · 10⁴ &nbsp; b) 3 · 10⁻³</p>
-      <p><b>5.</b> 6<sup>2+3−4</sup> = 6¹ = 6</p>
+      <p><b>1.</b> 100/200 = 0,5</p>
+      <p><b>2.</b> 140/200 = 0,7</p>
+      <p><b>3.</b> 60/200 = 0,3</p>
+      <p><b>4.</b> 60/100 = 0,6</p>
+      <p><b>5.</b> 60/140 = 3/7 ≈ 0,43</p>
     </details>
 
-    <p class="fuss">Mathe Klasse 9 · Potenzen & Potenzgesetze · Arbeitsblatt</p>
+    <p class="fuss">Mathe Klasse 10 · Bedingte Wahrscheinlichkeit · Arbeitsblatt</p>
   </div>
 </body>
 </html>

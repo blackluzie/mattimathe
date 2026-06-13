@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mattis Mathe – Klasse 9</title>
+  <title>Mattis Mathe</title>
   <meta name="theme-color" content="#0E7490">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="apple-touch-icon" href="icons/icon-192.png">
@@ -15,11 +15,13 @@
 <body>
   <div class="wrap">
     <h1>👋 Hallo Matti!</h1>
-    <p class="lead">Hier übst du für die nächste Mathe-Arbeit. Such dir ein Thema aus.
+    <p class="lead">Hier übst du für die nächste Mathe-Arbeit. Wähle zuerst dein
+       Schuljahr – darin findest du alle Themen in der Reihenfolge wie im Buch.
        Du kannst so oft üben, wie du möchtest – Fehler gehören dazu.</p>
 
-    <!-- Themen werden aus js/topics.js automatisch eingefügt -->
-    <div class="cards" id="themenKarten"></div>
+    <h2>📚 Schuljahr wählen</h2>
+    <!-- Jahres-Karten werden aus js/topics.js automatisch eingefügt -->
+    <div class="cards" id="jahrKarten"></div>
 
     <h2>📸 Arbeitsblatt kontrollieren</h2>
     <p>Du hast ein Arbeitsblatt mit Stift ausgefüllt? Fotografiere es ab –
@@ -32,51 +34,53 @@
       </a>
     </div>
 
-    <h2>📄 Zum Ausdrucken</h2>
-    <p>Lieber mit Stift und Papier? Hier sind die Arbeitsblätter mit Lösungen:</p>
-    <div class="cards" id="arbeitsblattKarten"></div>
-
     <div class="box tipp" style="margin-top:30px">
       <span class="label">Für zwischendurch</span>
       <p style="margin:0">Lieber kurz und oft üben (z. B. 20 Minuten) als einmal ganz lange.
          Mach Pausen, wenn du müde wirst. Du schaffst das! 💪</p>
     </div>
 
-    <p class="fuss">Mathe · Gymnasium NRW · Klasse 9 · Lernprojekt für Matti</p>
+    <p class="fuss">Mathe · Gymnasium NRW · Lernprojekt für Matti</p>
   </div>
 
   <script src="js/topics.js"></script>
   <script>
-    // Startseite baut sich aus dem Themen-Register (js/topics.js) zusammen.
+    // Startseite: baut für jedes Schuljahr eine Karte aus dem Themen-Register.
     (function () {
       function esc(s) {
         return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
           return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
         });
       }
+      var ZIFFER = { 9: "9️⃣", 10: "🔟" };
       var themen = window.THEMEN || [];
 
-      var lern = themen.filter(function (t) { return t.lernseite; }).map(function (t) {
-        return '<a class="card" href="' + esc(t.lernseite) + '">' +
-          '<span class="emoji">' + esc(t.emoji || "📘") + "</span>" +
-          "<h2>" + esc(t.titel) + "</h2>" +
-          "<p>" + esc(t.kurz || "") + "</p></a>";
-      }).join("");
-      document.getElementById("themenKarten").innerHTML = lern ||
-        '<p class="lead">Bald geht es los – neue Themen kommen dazu.</p>';
+      // Themen nach Schuljahr gruppieren (Reihenfolge beibehalten).
+      var jahre = [];
+      var seen = {};
+      themen.forEach(function (t) {
+        if (t.klasse == null) return;
+        if (!seen[t.klasse]) { seen[t.klasse] = []; jahre.push(t.klasse); }
+        seen[t.klasse].push(t);
+      });
+      jahre.sort(function (a, b) { return a - b; });
 
-      var blaetter = themen.filter(function (t) { return t.arbeitsblatt; }).map(function (t) {
-        return '<a class="card" href="' + esc(t.arbeitsblatt) + '">' +
-          '<span class="emoji">🖨️</span>' +
-          "<h2>Arbeitsblatt " + esc(t.titel) + "</h2>" +
-          "<p>Aufgaben + Lösungen. Über den Drucken-Knopf als PDF speichern.</p></a>";
+      var html = jahre.map(function (k) {
+        var anzahl = seen[k].filter(function (t) { return t.lernseite; }).length;
+        return '<a class="card" href="klasse' + k + '.html">' +
+          '<span class="emoji">' + (ZIFFER[k] || "📘") + "</span>" +
+          "<h2>Klasse " + esc(k) + "</h2>" +
+          "<p>" + anzahl + " Themen zum Üben – in der Reihenfolge wie im Buch.</p></a>";
       }).join("");
-      document.getElementById("arbeitsblattKarten").innerHTML = blaetter ||
-        '<p class="lead">Noch keine Arbeitsblätter vorhanden.</p>';
+      document.getElementById("jahrKarten").innerHTML = html ||
+        '<p class="lead">Bald geht es los – die Themen kommen dazu.</p>';
     })();
 
+    // Alten Service-Worker abmelden (er ist absichtlich deaktiviert).
     if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.getRegistrations().then(regs => regs.forEach(r => r.unregister()));
+      navigator.serviceWorker.getRegistrations().then(function (regs) {
+        regs.forEach(function (r) { r.unregister(); });
+      });
     }
   </script>
 </body>

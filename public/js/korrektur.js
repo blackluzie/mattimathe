@@ -30,7 +30,8 @@
       var btn = document.createElement("button");
       btn.className = "blatt-option";
       btn.dataset.id = t.id;
-      btn.innerHTML = '<span class="em">' + (t.emoji || "📄") + "</span> " + escapeHtml(t.titel);
+      var jahr = t.klasse ? '<small style="color:var(--ink-soft)"> · Kl. ' + escapeHtml(t.klasse) + "</small>" : "";
+      btn.innerHTML = '<span class="em">' + (t.emoji || "📄") + "</span> " + escapeHtml(t.titel) + jahr;
       blattWahl.appendChild(btn);
     });
 

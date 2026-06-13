@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logarithmen – Klasse 10</title>
+  <meta name="theme-color" content="#0E7490">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar"><a class="back" href="klasse10.html">← Zurück</a></div>
+    <h1>🔁 Logarithmen</h1>
+    <p class="lead">Der Logarithmus ist die Umkehrung des Potenzierens. Er beantwortet die Frage:
+       „Hoch wie viel muss ich rechnen?“ – und löst damit Exponentialgleichungen.</p>
+
+    <!-- ============ WISSEN ============ -->
+    <h2>1. Was ist ein Logarithmus?</h2>
+    <div class="box merken">
+      <span class="label">Merken</span>
+      <div class="formel">log<sub>b</sub>(x) = e &nbsp; bedeutet &nbsp; b<sup>e</sup> = x</div>
+      <p style="margin-bottom:0">Der Logarithmus ist der gesuchte <b>Exponent</b>.
+         Beispiel: log₂(8) = 3, denn 2³ = 8.</p>
+    </div>
+
+    <h2>2. Die Frage dahinter</h2>
+    <div class="box tipp">
+      <span class="label">So denkst du</span>
+      <p>log₂(8) fragt: „2 hoch <u>wie viel</u> ergibt 8?“ Antwort: 3.</p>
+      <p style="margin-bottom:0">log₁₀(1000) fragt: „10 hoch wie viel ergibt 1000?“ Antwort: 3,
+         denn 10³ = 1000. (log₁₀ heißt auch „lg“.)</p>
+    </div>
+
+    <h2>3. Exponentialgleichungen lösen</h2>
+    <div class="box merken">
+      <span class="label">Anwendung</span>
+      <p>Steht das x im Exponenten, hilft der Logarithmus:</p>
+      <div class="formel">2<sup>x</sup> = 8 &nbsp;→&nbsp; x = log₂(8) = 3</div>
+      <p style="margin-bottom:0">Praktische Werte zum Merken: log<sub>b</sub>(1) = 0 (denn b⁰ = 1)
+         und log<sub>b</sub>(b) = 1 (denn b¹ = b).</p>
+    </div>
+
+    <!-- ============ ÜBEN ============ -->
+    <h2>✏️ Jetzt üben</h2>
+    <div id="quiz"></div>
+
+    <p class="fuss">Mathe Klasse 10 · Logarithmen</p>
+  </div>
+
+  <script src="js/quiz.js"></script>
+  <script>
+    const aufgaben = [
+      {
+        typ:"input",
+        frage:"Berechne log₂(8). (2 hoch wie viel ergibt 8?)",
+        loesungen:["3"],
+        tipp:"2³ = 8.",
+        erklaerung:"log₂(8) = 3, denn 2³ = 8."
+      },
+      {
+        typ:"input",
+        frage:"Berechne log₁₀(1000).",
+        loesungen:["3"],
+        tipp:"10 hoch wie viel ergibt 1000?",
+        erklaerung:"log₁₀(1000) = 3, denn 10³ = 1000."
+      },
+      {
+        typ:"input",
+        frage:"Berechne log₂(16).",
+        loesungen:["4"],
+        tipp:"2⁴ = 16.",
+        erklaerung:"log₂(16) = 4, denn 2⁴ = 16."
+      },
+      {
+        typ:"input",
+        frage:"Berechne log₃(9).",
+        loesungen:["2"],
+        tipp:"3² = 9.",
+        erklaerung:"log₃(9) = 2, denn 3² = 9."
+      },
+      {
+        typ:"input",
+        frage:"Löse die Gleichung 2ˣ = 32. Was ist x?",
+        loesungen:["5"],
+        tipp:"x = log₂(32). 2⁵ = 32.",
+        erklaerung:"2⁵ = 32, also x = 5."
+      },
+      {
+        typ:"input",
+        frage:"Löse 10ˣ = 100. Was ist x?",
+        loesungen:["2"],
+        tipp:"10² = 100.",
+        erklaerung:"10² = 100, also x = 2."
+      },
+      {
+        typ:"input",
+        frage:"Berechne log₅(1).",
+        loesungen:["0"],
+        tipp:"5 hoch wie viel ergibt 1? Denk an b⁰ = 1.",
+        erklaerung:"log₅(1) = 0, denn 5⁰ = 1."
+      },
+      {
+        typ:"mc",
+        frage:"Was berechnet ein Logarithmus log<sub>b</sub>(x)?",
+        optionen:[
+          "die Basis b",
+          "den Exponenten, mit dem b zu x wird",
+          "das Produkt b · x"
+        ],
+        richtig:1,
+        tipp:"b hoch ? = x.",
+        erklaerung:"Der Logarithmus ist der Exponent: b^(Ergebnis) = x."
+      }
+    ];
+    starteQuiz("#quiz", aufgaben);
+  </script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Potenz- & ganzrationale Funktionen – Klasse 10</title>
+  <meta name="theme-color" content="#0E7490">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar"><a class="back" href="klasse10.html">← Zurück</a></div>
+    <h1>🧮 Potenz- & ganzrationale Funktionen</h1>
+    <p class="lead">Funktionen wie x², x³, x⁴ … nennt man Potenzfunktionen. Setzt man mehrere
+       davon zusammen, entstehen ganzrationale Funktionen (Polynome). Wichtig ist ihr Verlauf
+       und ihre Symmetrie.</p>
+
+    <!-- ============ WISSEN ============ -->
+    <h2>1. Potenzfunktionen f(x) = xⁿ</h2>
+    <div class="box merken">
+      <span class="label">Merken</span>
+      <p>Bei einer Potenzfunktion steht das x in der Basis und der Exponent n ist fest:</p>
+      <div class="formel">f(x) = xⁿ</div>
+      <p style="margin-bottom:0">Beispiele: f(x) = x² (Parabel), f(x) = x³ (kubische Funktion).
+         Alle gehen durch den Punkt (1 | 1).</p>
+    </div>
+
+    <h2>2. Symmetrie: gerade & ungerade Exponenten</h2>
+    <div class="box merken">
+      <span class="label">Die wichtigste Regel</span>
+      <table class="daten">
+        <tr><th>Exponent</th><th>Beispiel</th><th>Symmetrie</th></tr>
+        <tr><td><b>gerade</b> (2, 4, 6 …)</td><td>x², x⁴</td><td>achsensymmetrisch zur y-Achse</td></tr>
+        <tr><td><b>ungerade</b> (1, 3, 5 …)</td><td>x, x³, x⁵</td><td>punktsymmetrisch zum Ursprung</td></tr>
+      </table>
+      <p style="margin-bottom:0"><b>Gerade</b> Exponenten: f(−x) = f(x) (linke und rechte Seite gespiegelt).
+         <b>Ungerade</b>: f(−x) = −f(x) (am Ursprung gedreht).</p>
+    </div>
+    <div class="box tipp">
+      <span class="label">Beispiel</span>
+      <p style="margin:0">f(x) = x³: f(2) = 8 und f(−2) = −8. Gleicher Betrag, anderes Vorzeichen
+         → punktsymmetrisch. Bei f(x) = x²: f(2) = 4 und f(−2) = 4 → achsensymmetrisch.</p>
+    </div>
+
+    <h2>3. Ganzrationale Funktionen (Polynome)</h2>
+    <div class="box tipp">
+      <span class="label">Aufbau</span>
+      <p>Eine ganzrationale Funktion ist eine Summe von Potenzfunktionen, z. B.
+         f(x) = 2x⁴ − 3x² + x − 5.</p>
+      <p style="margin-bottom:0">Der höchste Exponent ist der <b>Grad</b> der Funktion. Er bestimmt,
+         wie viele Nullstellen höchstens möglich sind und wie der Graph für sehr große/kleine x
+         verläuft (Verhalten im Unendlichen).</p>
+    </div>
+
+    <!-- ============ ÜBEN ============ -->
+    <h2>✏️ Jetzt üben</h2>
+    <div id="quiz"></div>
+
+    <p class="fuss">Mathe Klasse 10 · Potenz- & ganzrationale Funktionen</p>
+  </div>
+
+  <script src="js/quiz.js"></script>
+  <script>
+    const aufgaben = [
+      {
+        typ:"input",
+        frage:"Berechne f(3) für f(x) = x².",
+        loesungen:["9"],
+        tipp:"Setze 3 für x ein: 3².",
+        erklaerung:"f(3) = 3² = 9."
+      },
+      {
+        typ:"input",
+        frage:"Berechne f(2) für f(x) = x³.",
+        loesungen:["8"],
+        tipp:"2³ = 2·2·2.",
+        erklaerung:"f(2) = 2³ = 8."
+      },
+      {
+        typ:"input",
+        frage:"Berechne f(−3) für f(x) = x².",
+        loesungen:["9"],
+        tipp:"(−3)² – Minus mal Minus ergibt Plus.",
+        erklaerung:"f(−3) = (−3)² = 9. (Bei geradem Exponenten kommt immer etwas Positives heraus.)"
+      },
+      {
+        typ:"input",
+        frage:"Berechne f(−1) für f(x) = x⁵.",
+        loesungen:["-1","−1"],
+        tipp:"Ungerader Exponent → Vorzeichen bleibt negativ.",
+        erklaerung:"f(−1) = (−1)⁵ = −1."
+      },
+      {
+        typ:"mc",
+        frage:"Welche Symmetrie hat f(x) = x⁴?",
+        optionen:[
+          "punktsymmetrisch zum Ursprung",
+          "achsensymmetrisch zur y-Achse",
+          "gar keine Symmetrie"
+        ],
+        richtig:1,
+        tipp:"4 ist ein gerader Exponent.",
+        erklaerung:"Gerader Exponent → achsensymmetrisch zur y-Achse (f(−x) = f(x))."
+      },
+      {
+        typ:"mc",
+        frage:"Welche dieser Funktionen ist punktsymmetrisch zum Ursprung?",
+        optionen:["f(x) = x²", "f(x) = x³", "f(x) = x⁴", "f(x) = x⁶"],
+        richtig:1,
+        tipp:"Punktsymmetrie gehört zu ungeraden Exponenten.",
+        erklaerung:"x³ hat einen ungeraden Exponenten → punktsymmetrisch zum Ursprung."
+      },
+      {
+        typ:"input",
+        frage:"Welchen Grad hat die Funktion f(x) = 3x⁴ + 2x − 1?",
+        loesungen:["4"],
+        tipp:"Der Grad ist der höchste vorkommende Exponent.",
+        erklaerung:"Der höchste Exponent ist 4, also Grad 4."
+      },
+      {
+        typ:"input",
+        frage:"Durch welchen Punkt (1 | ?) geht jede Potenzfunktion f(x) = xⁿ? Gib den y-Wert an.",
+        loesungen:["1"],
+        tipp:"1 hoch irgendetwas ist immer …?",
+        erklaerung:"1ⁿ = 1, also geht jede Potenzfunktion durch (1 | 1)."
+      }
+    ];
+    starteQuiz("#quiz", aufgaben);
+  </script>
+</body>
+</html>

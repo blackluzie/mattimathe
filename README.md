@@ -1,8 +1,12 @@
-# Mattis Mathe – Klasse 9 (Gymnasium NRW)
+# Mattis Mathe – Klasse 9 & 10 (Gymnasium NRW)
 
 Ein kleines Lernprojekt zum Üben für die nächste Mathe-Arbeit. Es deckt die Themen
-der **Klasse 9 (Gymnasium NRW, Lambacher Schweizer 9)** ab – mit dem Schwerpunkt auf
-**interaktiven App-Übungen**; Arbeitsblätter gibt es zu jedem Thema zusätzlich. Themen:
+der **Klassen 9 und 10 (Gymnasium NRW, Lambacher Schweizer 9 & 10)** ab – mit dem
+Schwerpunkt auf **interaktiven App-Übungen**; zu jedem Thema gibt es zusätzlich ein
+Arbeitsblatt. Die Startseite teilt nach **Schuljahr** auf, jede Jahresseite listet
+die Themen in der **Reihenfolge wie im Buch**.
+
+**Klasse 9:**
 
 - √ **Reelle Zahlen & Wurzeln** – Quadratwurzeln, rationale/irrationale Zahlen, Wurzelgesetze, teilweises Wurzelziehen
 - 🔢 **Potenzen & Potenzgesetze** – Rechnen mit Potenzen, negative Exponenten, wissenschaftliche Schreibweise
@@ -15,13 +19,21 @@ der **Klasse 9 (Gymnasium NRW, Lambacher Schweizer 9)** ab – mit dem Schwerpun
 - 🧊 **Körper** – Volumen und Oberfläche von Prisma, Zylinder, Pyramide, Kegel und Kugel
 - 🎲 **Wahrscheinlichkeit** – Laplace-Formel, Gegenwahrscheinlichkeit, Baumdiagramme, Pfadregeln
 
+**Klasse 10:**
+
+- 🧮 **Potenz- & ganzrationale Funktionen** – Potenzfunktionen xⁿ, Symmetrie (gerade/ungerade), Grad und Verlauf
+- 🚀 **Exponentialfunktionen & Wachstum** – Wachstums- und Zerfallsprozesse, Wachstumsfaktor, Prozente als Faktor
+- 🔁 **Logarithmen** – der Logarithmus als Umkehrung des Potenzierens, Exponentialgleichungen lösen
+- 〰️ **Sinus- & Kosinusfunktion** – Periode, Amplitude, Werte am Einheitskreis
+- 🧭 **Sinus- & Kosinussatz** – Trigonometrie in beliebigen Dreiecken
+- 🎯 **Bedingte Wahrscheinlichkeit** – Vierfeldertafel, Baumdiagramme, P(A|B)
+- 📊 **Beschreibende Statistik** – Mittelwert, Median, Modalwert, Spannweite, Quartile, Boxplot
+
 Es gibt **dreierlei**: eine interaktive Lern-Webseite (Erklärungen + sofortiges
 Feedback), druckbare Arbeitsblätter mit Lösungen **und** eine
 📸 **Foto-Korrektur**: Matti füllt ein Arbeitsblatt mit Stift aus, fotografiert es
 ab, und eine KI (Claude) liest seine Handschrift, vergleicht sie mit den
-Musterlösungen und gibt eine Rückmeldung pro Aufgabe. Die Seite ist als PWA
-installierbar und funktioniert nach dem ersten Laden auch offline (die
-Foto-Korrektur braucht natürlich Internet).
+Musterlösungen und gibt eine Rückmeldung pro Aufgabe.
 
 Veröffentlicht unter **https://matti.hoffknecht.de** – geschützt durch ein Passwort-Login.
 
@@ -31,16 +43,18 @@ Veröffentlicht unter **https://matti.hoffknecht.de** – geschützt durch ein P
 
 ```
 public/                     ← die eigentliche Webseite (statisch)
-  index.html                  Startseite – baut sich aus js/topics.js auf
-  flaeche.html                Lernseite + interaktive Übungen
-  funktionen.html             Lernseite + interaktive Übungen
+  index.html                  Startseite – Schuljahr-Auswahl (Klasse 9 / 10)
+  klasse9.html, klasse10.html Jahres-Übersicht – Themen in Buch-Reihenfolge
+  <thema>.html                Lernseiten + interaktive Übungen (eine pro Thema)
   korrektur.html              📸 Foto-Korrektur (Blatt fotografieren → Rückmeldung)
   arbeitsblatt-*.html         druckbare Arbeitsblätter (mit Lösungen)
   css/style.css               Design (Petrol/Teal-Akzent)
-  js/topics.js                THEMEN-REGISTER (zentrale Themenliste)
+  js/topics.js                THEMEN-REGISTER (zentrale Themenliste, je mit klasse)
+  js/jahr.js                  baut eine Jahresseite aus dem Themen-Register
   js/quiz.js                  Übungs-Engine (Feedback, Tipps)
   js/korrektur.js             Foto-Korrektur: Bild verkleinern + Ergebnis anzeigen
-  manifest.webmanifest, sw.js PWA (installierbar, offline)
+  manifest.webmanifest        Web-App-Manifest
+  sw.js                       Service-Worker (bewusst deaktiviert: no-op)
   icons/                      App-Icons
 worker/index.js             Cloudflare Worker: Login-Schutz, Ausliefern,
                             /api/check-worksheet (Foto-Korrektur per Claude Vision)
@@ -57,16 +71,19 @@ Die App ist bewusst so gebaut, dass immer neue Themen dazukommen können. Für e
 neues Thema (z. B. „Trigonometrie") sind nur wenige Schritte nötig:
 
 1. **Lernseite** anlegen: `public/trigonometrie.html`
-   (am einfachsten `flaeche.html` kopieren und Inhalt + Quiz-Aufgaben ersetzen).
+   (am einfachsten eine vorhandene Lernseite kopieren und Inhalt + Quiz-Aufgaben ersetzen).
 2. **Arbeitsblatt** anlegen: `public/arbeitsblatt-trigonometrie.html`
    (Vorlage: ein vorhandenes `arbeitsblatt-*.html`).
 3. **Im Themen-Register eintragen:** in `public/js/topics.js` einen Eintrag ins
-   Array `THEMEN` ergänzen (`id`, `emoji`, `titel`, `kurz`, `lernseite`,
-   `arbeitsblatt`). Startseite und Foto-Auswahl aktualisieren sich automatisch.
+   Array `THEMEN` ergänzen (`id`, **`klasse`**, `emoji`, `titel`, `kurz`, `lernseite`,
+   `arbeitsblatt`). Über `klasse` (9 oder 10) erscheint das Thema automatisch auf der
+   richtigen Jahresseite; Startseite und Foto-Auswahl aktualisieren sich ebenfalls selbst.
 4. **Lösungsschlüssel** für die Foto-Korrektur in `worker/index.js` ergänzen
    (Objekt `WORKSHEETS`, gleiche `id` wie in Schritt 3).
-5. **Offline-Cache:** die neuen Dateinamen in `public/sw.js` (Liste `ASSETS`)
-   ergänzen und die Versionsnummer `CACHE` erhöhen.
+
+Ein neues Schuljahr (z. B. Klasse 11) bekommt zusätzlich eine eigene `klasseXX.html`
+(Vorlage: `klasse10.html`, nur `window.JAHR_KLASSE` anpassen) – die Startseite verlinkt
+es automatisch, sobald Themen mit dieser `klasse` im Register stehen.
 
 Mehr ist nicht nötig – kein Umbau an der Engine, kein neues Routing.
 

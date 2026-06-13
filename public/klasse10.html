@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Klasse 10 – Mattis Mathe</title>
+  <meta name="theme-color" content="#0E7490">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar"><a class="back" href="index.html">← Schuljahr wechseln</a></div>
+    <h1>🔟 Klasse 10</h1>
+    <p class="lead">Alle Themen der 10. Klasse (Lambacher Schweizer 10, Gymnasium NRW) –
+       in der Reihenfolge wie im Buch. Such dir ein Thema und leg los.</p>
+
+    <h2>📘 Themen zum Üben</h2>
+    <!-- Themen werden aus js/topics.js (Klasse 10) automatisch eingefügt -->
+    <div class="cards" id="themenKarten"></div>
+
+    <h2>📄 Zum Ausdrucken</h2>
+    <p>Lieber mit Stift und Papier? Hier sind die Arbeitsblätter mit Lösungen:</p>
+    <div class="cards" id="arbeitsblattKarten"></div>
+
+    <p class="fuss">Mathe · Gymnasium NRW · Klasse 10 · Lernprojekt für Matti</p>
+  </div>
+
+  <script src="js/topics.js"></script>
+  <script>window.JAHR_KLASSE = 10;</script>
+  <script src="js/jahr.js"></script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bedingte Wahrscheinlichkeit – Klasse 10</title>
+  <meta name="theme-color" content="#0E7490">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar"><a class="back" href="klasse10.html">← Zurück</a></div>
+    <h1>🎯 Bedingte Wahrscheinlichkeit</h1>
+    <p class="lead">Manchmal weiß man schon etwas – z. B. „die Person treibt Sport“. Wie
+       wahrscheinlich ist dann noch ein zweites Merkmal? Das beantwortet die bedingte
+       Wahrscheinlichkeit, oft mit einer Vierfeldertafel.</p>
+
+    <!-- ============ WISSEN ============ -->
+    <h2>1. Die Vierfeldertafel</h2>
+    <div class="box merken">
+      <span class="label">Beispiel: 100 Personen</span>
+      <table class="daten">
+        <tr><th></th><th>Sport (S)</th><th>kein Sport (S̄)</th><th>Summe</th></tr>
+        <tr><th>Brille (B)</th><td>10</td><td>20</td><td>30</td></tr>
+        <tr><th>keine Brille (B̄)</th><td>40</td><td>30</td><td>70</td></tr>
+        <tr><th>Summe</th><td>50</td><td>50</td><td>100</td></tr>
+      </table>
+      <p style="margin-bottom:0">Aus den Randsummen liest du die einfachen Wahrscheinlichkeiten ab:
+         P(B) = 30/100 = 0,3 und P(S) = 50/100 = 0,5.</p>
+    </div>
+
+    <h2>2. Die Formel für P(A | B)</h2>
+    <div class="box merken">
+      <span class="label">Merken</span>
+      <div class="formel">P(A | B) =
+        <span class="bruch"><span class="z">P(A und B)</span><span class="n">P(B)</span></span>
+      </div>
+      <p style="margin-bottom:0">„P(A | B)“ heißt: Wahrscheinlichkeit für A, <b>wenn B schon
+         feststeht</b>. Man rechnet nur noch innerhalb der B-Gruppe.</p>
+    </div>
+    <div class="box tipp">
+      <span class="label">Beispiel</span>
+      <p style="margin:0">P(Brille | Sport) = von den 50 Sportlern tragen 10 eine Brille →
+         10/50 = 0,2. Mit der Formel: P(B und S)/P(S) = 0,1 / 0,5 = 0,2.</p>
+    </div>
+
+    <!-- ============ ÜBEN ============ -->
+    <h2>✏️ Jetzt üben</h2>
+    <p>Alle Aufgaben beziehen sich auf die Tabelle oben (100 Personen). Antworten als Bruch oder
+       Dezimalzahl.</p>
+    <div id="quiz"></div>
+
+    <p class="fuss">Mathe Klasse 10 · Bedingte Wahrscheinlichkeit</p>
+  </div>
+
+  <script src="js/quiz.js"></script>
+  <script>
+    const aufgaben = [
+      {
+        typ:"input",
+        frage:"Wie groß ist P(Brille)? (Bruch oder Dezimalzahl)",
+        loesungen:["0.3","0,3","30/100","3/10"],
+        tipp:"30 Brillenträger von 100 Personen.",
+        erklaerung:"P(Brille) = 30/100 = 0,3."
+      },
+      {
+        typ:"input",
+        frage:"Wie groß ist P(Sport und Brille)? (Bruch oder Dezimalzahl)",
+        loesungen:["0.1","0,1","10/100","1/10"],
+        tipp:"In der Tabelle das Feld Sport ∩ Brille: 10 von 100.",
+        erklaerung:"P(Sport und Brille) = 10/100 = 0,1."
+      },
+      {
+        typ:"mc",
+        frage:"Wie lautet die Formel für die bedingte Wahrscheinlichkeit P(A | B)?",
+        optionen:[
+          "P(A) · P(B)",
+          "P(A und B) ÷ P(B)",
+          "P(A) + P(B)"
+        ],
+        richtig:1,
+        tipp:"Du teilst durch die Wahrscheinlichkeit der Bedingung.",
+        erklaerung:"P(A | B) = P(A und B) / P(B)."
+      },
+      {
+        typ:"input",
+        frage:"Wie groß ist P(Brille | Sport)? Also: von den Sportlern – wie viele tragen Brille? (Bruch oder Dezimalzahl)",
+        loesungen:["0.2","0,2","10/50","1/5"],
+        tipp:"10 Brillenträger unter den 50 Sportlern.",
+        erklaerung:"P(Brille | Sport) = 10/50 = 0,2."
+      },
+      {
+        typ:"input",
+        frage:"Wie groß ist P(Sport | Brille)? Also: von den Brillenträgern – wie viele treiben Sport? (Bruch)",
+        loesungen:["1/3","10/30"],
+        tipp:"10 Sportler unter den 30 Brillenträgern.",
+        erklaerung:"P(Sport | Brille) = 10/30 = 1/3."
+      },
+      {
+        typ:"input",
+        frage:"Wie groß ist P(kein Sport)? (Bruch oder Dezimalzahl)",
+        loesungen:["0.5","0,5","50/100","1/2"],
+        tipp:"50 von 100 treiben keinen Sport.",
+        erklaerung:"P(kein Sport) = 50/100 = 0,5."
+      }
+    ];
+    starteQuiz("#quiz", aufgaben);
+  </script>
+</body>
+</html>
